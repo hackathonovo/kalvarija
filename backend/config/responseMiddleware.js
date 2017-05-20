@@ -1,5 +1,3 @@
-var h = require('../helpers');
-
 module.exports = function(app, io){
 
 app.use(function(req, res, next){ 
