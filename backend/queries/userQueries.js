@@ -37,8 +37,16 @@ var getByPhone = function(phone){
 			.lean()
 }
 
+var getByStation = function(stationId){
+	return User.find({ station: stationId })
+		.select(userFields)
+		.lean()
+}
+
+
 module.exports = {
 	getById,
 	getByPhone,
+	getByStation,
 	addNew
 }
