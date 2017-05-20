@@ -1,4 +1,4 @@
-hgss.controller("createUserController", ["$scope", "$state", "httpService", function ($scope, $state, httpService) {
+hgss.controller("createUserController", ["$scope", "$state", "userService", "httpService", "variablesService", function ($scope, $state, userService, httpService, variablesService) {
 
 	$scope.save = function()
 	{
@@ -7,6 +7,9 @@ hgss.controller("createUserController", ["$scope", "$state", "httpService", func
 			$state.go("app.users")
 		});
 	}
+	$scope.user = {};
+	$scope.user.station = userService.getProperty("station");
+	$scope.stations = variablesService.getStations();
 
 	$scope.back = function()
 	{

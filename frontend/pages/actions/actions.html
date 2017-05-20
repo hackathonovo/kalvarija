@@ -7,15 +7,15 @@
         </div>
         <div class="toolbar-section">
             <button class="toolbar-btn">
-                <i class="fa fa-th-large"></i>
+                <i class="fa fa-th-large" ng-click="setCardView(true)"></i>
             </button>
             <button class="toolbar-btn">
-                <i class="fa fa-th-list"></i>
+                <i class="fa fa-th-list" ng-click="setCardView(false)"></i>
             </button>
         </div>
     </div>
 
-    <ul class="data-list data-list--cards">
+    <ul class="data-list data-list--cards" ng-class="{'data-list--cards': isCardView}">
         <li class="data-list-item data-list-item--legend">
             <div class="data-list-item-content">
                 Naziv akcije
