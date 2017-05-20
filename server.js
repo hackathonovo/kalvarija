@@ -61,6 +61,7 @@ app.use(expressValidator({
 }));
 
 app.use('/api/home', require('./backend/api/home'));
+app.use('/api/user', require('./backend/api/user'));
 app.use('/', require('./backend/config/routes'));
 
 app.use(function(err, req, res, next) {

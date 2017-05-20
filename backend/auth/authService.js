@@ -8,6 +8,12 @@ var ensure = config.enableApiAuth
 	? passportAuthenticator 
 	: fakeAlwaysTrueAuthenticator;
 
+var isAdmin = function(req, res, next){
+	if(req.user.isAdmin){ next() }
+	else{ res.noAuth() }
+}
+
 module.exports = {
-	ensure
+	ensure,
+	isAdmin
 };
