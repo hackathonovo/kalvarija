@@ -1,7 +1,8 @@
 hgss.controller("createUserController", ["$scope", "$state", "httpService", function ($scope, $state, httpService) {
 	
 	$scope.user = {
-		name: "",
+		firstName: "Diana",
+		lastName: "",
 		phoneNumber: "",
 		adress: "",
 		job: "",
@@ -13,7 +14,8 @@ hgss.controller("createUserController", ["$scope", "$state", "httpService", func
 	}
 
 	$scope.value = {
-		name: "",
+		firstName: "Diana",
+		lastName: "",
 		phoneNumber: "",
 		adress: "",
 		job: "",
@@ -26,7 +28,7 @@ hgss.controller("createUserController", ["$scope", "$state", "httpService", func
 	$scope.save = function()
 	{
 		$scope.value = $scope.user;
-		httpService.createNewUser($scope.user).then(response => {
+		httpService.createNewUser($scope.user).then(function(response) {
 			$state.go("app.users")
 		});
 	}
