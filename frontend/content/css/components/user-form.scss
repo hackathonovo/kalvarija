@@ -1,0 +1,31 @@
+.user-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .form-label {
+        font-size: 18px;
+        margin-top: 7px;
+    }
+
+    img {
+        width: 150px;
+    }
+}
+
+.user-row {
+    margin-bottom: 20px;
+    @include clearfix();
+
+    .form-control {
+        width: 50%;
+        float: left;
+        padding-right: 10px;
+
+        & + .form-control {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

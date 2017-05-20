@@ -21,3 +21,24 @@
 .btn-white {
     @include button-variant(transparent, white, white, transparent, white, darken(white, 5%));
 }
+
+.btn-link {
+    @include button-variant(transparent, $primary-color, white, transparent, $primary-color-darker, transparent);
+    cursor: pointer;
+}
+
+.btn-link-white {
+    @include button-variant(transparent, white, transparent, transparent, white, transparent);
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.btn-link,
+.btn-link-white {
+    .fa {
+        margin-right: 5px;
+    }
+}

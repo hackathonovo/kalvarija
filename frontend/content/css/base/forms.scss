@@ -6,6 +6,15 @@
     display: block;
     margin-bottom: 5px;
     font-weight: $font-bold;
+
+    &.form-label-required {
+        &:after {
+            content: "*";
+            color: $danger-color;
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
 }
 
 .form-input {
@@ -21,5 +30,55 @@
     &:focus {
         outline: 0;
         border-color: $gray;
+    }
+}
+
+.form-control {
+    & + .form-control {
+        margin-top: 25px;
+    }
+}
+
+.checkbox-container {
+    position: relative;
+    margin-bottom: 10px;
+
+    input {
+        visibility: hidden;
+        opaciy: 0;
+        width: 1px;
+        height: 1px;
+        position: absolute;
+
+        &:checked {
+            & + label {
+                &:before {
+                    content: "\f00c";
+                    font-family: FontAwesome;
+                    background: $success-color;
+                    border-color: $success-color;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    label {
+        font-weight: 400;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            text-align: center;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
     }
 }
