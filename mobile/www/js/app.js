@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state, authService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,6 +21,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleDefault();
     }
   });
+
+  $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
+      if (!authService.isAuthenticated() && next.name !== 'login') {
+          event.preventDefault();
+          $state.go('login'); 
+        }
+    });
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -39,6 +47,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // Each tab has its own nav history stack:
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+  })
 
   .state('tab.dash', {
     url: '/dash',
