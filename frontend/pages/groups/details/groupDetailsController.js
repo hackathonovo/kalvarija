@@ -8,7 +8,7 @@ hgss.controller("groupDetailsController", ["$scope", "$state", "httpService", "$
     httpService.getGroupById(groupId).then(function(response) {
         $scope.group = response.data;
         console.log(response.data);
-                console.log($stateParams.id);
+		console.log($stateParams.id);
 
     })
 

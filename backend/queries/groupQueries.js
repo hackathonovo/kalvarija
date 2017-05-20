@@ -24,15 +24,11 @@ var addNewGroup = function(name, participants){
 
 var getAllGroups = function(){
 	return Group.find()
-		.select(groupFields)
-		.populate(populateParticipants)
-		.lean()
 }
 
 var getGroupById = function(id){
 	return Group.findById(id)
 			.select(groupFields)
-			.populate(populateParticipants)
 			.lean()
 }
 
@@ -42,15 +38,6 @@ var getGroupByName = function(name){
 			.populate(populateParticipants)
 			.lean()
 }
-/*
-var addUserToGroup = function(groupId, usersIds){
-	return Group.findAddUpdate({ groupId: groupId }, {
-		$addToSet: {users: usersIds}
-	})
-			.select(groupFields)
-			.populate(populateParticipants)
-			.lean()
-}*/
 
 module.exports = {
 	getGroupById,
