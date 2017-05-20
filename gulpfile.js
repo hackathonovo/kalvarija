@@ -46,10 +46,6 @@ gulp.task('bundle-app', function () {
         .pipe(gulp.dest('.frontend/'));
 });
 
-gulp.task('build-prod', ['bundle-app']);
-
-gulp.task('build', ['sass', 'bundle-scripts']);
-
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
 });
