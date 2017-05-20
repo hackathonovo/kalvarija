@@ -17,7 +17,7 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 controller: 'loginController' 
             })
             .state('app.users', {
-                url: '/',
+                url: '',
                 templateUrl: 'pages/users/users.html',
                 controller: 'usersController',
             })

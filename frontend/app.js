@@ -9,7 +9,6 @@ function hgssRun($rootScope, $state, authService) {
 
     $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
         if (!authService.isAuthenticated() && next.name !== 'login') {
-        	console.log(next.name);
 	        event.preventDefault();
 	        $state.go('login');	
         }
