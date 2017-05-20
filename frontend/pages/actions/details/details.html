@@ -1,12 +1,48 @@
-<div style="display: flex; flex-direction: column;">
-	<p>Naziv akcije: {{action.name}}</p>
-	<p ui-sref="app.user({id: action.leader._id})">Voditelj: {{action.leader.name}}</p>
-	<p>Stanica: {{action.station}}</p>
-	<p>Lokacija: {{action.location}}</p>
-	<p>Vrijeme nalaženja: {{action.startTime}}</p>
-	<p>
-		Sudionici:
-		<span ng-repeat="user in action.participants">user.name</span>
-	</p>
-	<p>Opis: {{action.description}}</p>
-</div>
+<section class="container">
+    <div class="details-container">
+        <div class="details-img-holder details-img-holder-larger">
+            <img src="/content/images/map.png" />
+        </div>
+        <div class="details-title">
+            {{action.name}}
+        </div>
+    </div>
+
+    <div class="details-sections">
+        <div class="details-section">
+            <div class="details-section-title">
+                Podaci o organizaciji
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Stanica</div>
+                <div class="detail-row-content">{{action.station}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Voditelj</div>
+                <div class="detail-row-content"><a ui-sref="app.user({id: action.leader._id})">{{action.leader.name}}</a></div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Sudionici</div>
+                <div class="detail-row-content"> 
+                	<span ng-repeat="user in action.participants">{{user.name}}</span>
+            	</div>
+            </div>
+        </div>
+        <div class="details-section">
+            <div class="details-section-title">
+                Detalji akcije
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Lokacija</div>
+                <div class="detail-row-content"> {{action.location}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Vrijeme nalaženja</div>
+                <div class="detail-row-content"> {{action.startTime}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="details-section details-section--full-width">
+    	<button class="add-report-button"><i class="fa fa-plus"></i>Dodaj izvještaj</button>
+    </div>
+</section>

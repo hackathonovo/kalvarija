@@ -8,6 +8,24 @@
 .details-img-holder {
     width: 120px;
     float: left;
+
+    img {
+        width: 120px;
+    }
+
+    &.details-img-holder-larger {
+        width: 180px;
+        border: 5px solid $gray;
+
+        img {
+            width: 170px;
+            display: block;
+        }
+
+        & + .details-title {
+            margin-top: 70px;
+        }
+    }
 }
 
 .details-title {
@@ -47,6 +65,12 @@
     & + .details-section {
         margin-right: 0;
     }
+
+    &.details-section--full-width {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
 }
 
 .detail-row {
@@ -63,4 +87,21 @@
 
 .detail-row-content {
     display: table-cell;
+}
+
+.add-report-button {
+    @include reset-button();  
+    width: 100%;
+    color: $primary-color-darker;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    .fa {
+        margin-right: 10px;
+    }
 }
