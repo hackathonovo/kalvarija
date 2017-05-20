@@ -1,4 +1,5 @@
 $primary-color: #0478af;
+$primary-color-darker: darken($primary-color, 10%);
 
 $font: 'Lato', sans-serif;
 $font-light: 300;
@@ -9,5 +10,8 @@ $gray-dark: #212121;
 $gray: #424242;
 $gray-semi-light: #BDBDBD;
 $gray-light: #F5F5F5;
+$gray-lighter: #E0E0E0;
+$gray-extra-light: #F5F5F5;
 
 $border-color: $gray-semi-light;
+$border-color-lighter: $gray-lighter;

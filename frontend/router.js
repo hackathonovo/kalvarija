@@ -7,8 +7,14 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
         $stateProvider
             .state('app', {
                 url: '/',
+                abstract: true,
                 templateUrl: 'pages/layout/layout.html',
                 controller: 'layoutController'     
+            })
+            .state('app.users', {
+                url: '',
+                templateUrl: 'pages/users/users.html',
+                controller: 'usersController',
             })
     }
 ]);
