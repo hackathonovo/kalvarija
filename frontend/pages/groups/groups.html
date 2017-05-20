@@ -1,0 +1,36 @@
+<section class="container">
+    <h1 class="page-title">HGSS grupe</h1>
+    <div class="toolbar">
+        <div class="toolbar-section">
+            <button class="toolbar-btn" ng-click="addNewGroup()">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+        <div class="toolbar-section toolbar-seciton-search">
+            <input class="toolbar-input" type="text" ng-model="searchGroups" />
+        </div>
+        <div class="toolbar-section">
+            <button class="toolbar-btn" ng-click="setCardView(true)">
+                <i class="fa fa-th-large"></i>
+            </button>
+            <button class="toolbar-btn" ng-click="setCardView(false)">
+                <i class="fa fa-th-list"></i>
+            </button>
+        </div>
+    </div>
+
+    <div>
+        <ul class="data-list" ng-class="{'data-list--cards': isCardView}">
+            <li class="data-list-item data-list-item--legend">
+                <div class="data-list-item-content">
+                    Naziv
+                </div>
+            </li>
+            <li class="data-list-item" ng-repeat="group in groups | filter: searchGroups">
+                <div class="data-list-item-content">
+                    <a ui-sref="app.group-details({id: group.name})" class="data-list-link">{{group.name}}</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

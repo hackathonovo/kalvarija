@@ -1,0 +1,24 @@
+<section class="container">
+    <h1 class="page-title">Detalji</h1>
+    
+    <div div class="toolbar">
+        <div class="toolbar-section">
+            <h2>
+              {{user.name}}
+            </h2>
+        </div>
+        <div class="toolbar-section">
+            <button class="toolbar-btn" ng-click="back()">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div>
+        <label>Broj mobitela: {{user.phone}}</label>
+        <label>Adresa: {{user.adress}}</label>
+        <label>Posao: {{user.job}}</label>
+        <label>Stanica: {{user.station}}</label>
+        <label>Grupe: {{user.group}}</label>
+        <label>Položeni tečajevi: <span ng-repeat="group in user.courses">{{group}} </span></label>
+    </div>
+</section>

@@ -14,5 +14,10 @@ hgss.service('httpService', ['$http', function($http) {
     	getActionByLeader : function(id){ return $http.get('/api/action/leader/'+ id )},
     	// action objekt { startTime, location, description, participants }
     	createNewAction : function(action){ return $http.post('/api/action/new', action )},
+
+        getGroupById: function(id){ return $http.get('/api/group/id/' + id)},
+        getAllGroups: function(){ return $http.get('/api/group/all') },
+        getGroupByName: function(name){ return $http.get('/api/group/name/'+ name )},
+        addNewGroup: function(group){ return $http.post('/api/group/new', group )},
     }
 }])
