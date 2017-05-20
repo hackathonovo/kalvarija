@@ -29,7 +29,7 @@ router
 	.catch(err => res.error(err))
 })
 
-.post('/new', auth.ensure, auth.isAdmin, function (req, res, next) {
+.post('/new', auth.ensure, function (req, res, next) {
 	uq.addNew(
 		req.body.firstName,
 		req.body.lastName,
