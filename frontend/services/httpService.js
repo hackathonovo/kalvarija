@@ -9,6 +9,7 @@ hgss.service('httpService', ['$http', function($http) {
 
         getUsersByGroup : function(group, station){ return $http.get('/api/user', { params: { group : group, station: station } } )},
 
+        getAllActions : function(){ return $http.get('/api/action/all') },
     	getActionById : function(id){ return $http.get('/api/action/id/'+ id )},
     	getActionByLeader : function(id){ return $http.get('/api/action/leader/'+ id )},
     	// action objekt { startTime, location, description, participants }

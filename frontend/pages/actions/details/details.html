@@ -1,0 +1,12 @@
+<div style="display: flex; flex-direction: column;">
+	<p>Naziv akcije: {{action.name}}</p>
+	<p ui-sref="app.user({id: action.leader._id})">Voditelj: {{action.leader.name}}</p>
+	<p>Stanica: {{action.station}}</p>
+	<p>Lokacija: {{action.location}}</p>
+	<p>Vrijeme nalaženja: {{action.startTime}}</p>
+	<p>
+		Sudionici:
+		<span ng-repeat="user in action.participants">user.name</span>
+	</p>
+	<p>Opis: {{action.description}}</p>
+</div>

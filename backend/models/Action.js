@@ -3,13 +3,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ActionSchema = new Schema({
     type: String,
+    name: String,
 	leader: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     startTime: Date, //početak akcije (kad se nalaze na baznoj stanici)
     endTime: Date, //kraj akcije
     location: String, //lokacija bazne stanice
     station: String, //okrug kojemu pripada akcija
 	description: String,
-    participants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true }],
+    participants: Array,
     case: {
         nameOfInjuredPerson: String,
         nameOfAction: String,
