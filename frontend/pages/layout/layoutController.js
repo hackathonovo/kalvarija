@@ -1,0 +1,2 @@
+hgss.controller("layoutController", function () {
+});
