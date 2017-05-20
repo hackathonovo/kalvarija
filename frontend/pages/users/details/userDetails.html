@@ -1,24 +1,52 @@
 <section class="container">
-    <h1 class="page-title">Detalji</h1>
-    
-    <div div class="toolbar">
-        <div class="toolbar-section">
-            <h2>
-              {{user.name}}
-            </h2>
+    <!-- <h1 class="page-title">{{user.name}}</h1> -->
+    <div class="details-container">
+        <div class="details-img-holder">
+            <img src="/content/images/user.png" />
         </div>
-        <div class="toolbar-section">
-            <button class="toolbar-btn" ng-click="back()">
-                <i class="fa fa-plus"></i>
-            </button>
+        <div class="details-title">
+            {{user.name}}
         </div>
+        <div class="details-edit">
+            <button class="btn btn-lg btn-default">Uredi</button>
+        </div>
+
     </div>
-    <div>
-        <label>Broj mobitela: {{user.phone}}</label>
-        <label>Adresa: {{user.adress}}</label>
-        <label>Posao: {{user.job}}</label>
-        <label>Stanica: {{user.station}}</label>
-        <label>Grupe: {{user.group}}</label>
-        <label>Položeni tečajevi: <span ng-repeat="group in user.courses">{{group}} </span></label>
+
+    <div class="details-sections">
+        <div class="details-section">
+            <div class="details-section-title">
+                Osobni podaci
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Broj mobitela</div>
+                <div class="detail-row-content"> {{user.phone}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Lokacija</div>
+                <div class="detail-row-content"> {{user.location}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Posao</div>
+                <div class="detail-row-content"> {{user.job}}</div>
+            </div>
+        </div>
+        <div class="details-section">
+            <div class="details-section-title">
+                Uloga u udruzi
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Stanica</div>
+                <div class="detail-row-content"> {{user.station}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Tip člana</div>
+                <div class="detail-row-content"> {{user.type}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-row-title">Grupe</div>
+                <div class="detail-row-content"> <span ng-repeat="group in user.groups">{{group}}</span></div>
+            </div>
+        </div>
     </div>
 </section>

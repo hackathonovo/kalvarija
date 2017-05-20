@@ -1,0 +1,107 @@
+.details-container {
+    @include clearfix();
+    padding: 30px;
+    margin: 0 50px;
+    border: 2px solid $border-color-lighter;
+}
+
+.details-img-holder {
+    width: 120px;
+    float: left;
+
+    img {
+        width: 120px;
+    }
+
+    &.details-img-holder-larger {
+        width: 180px;
+        border: 5px solid $gray;
+
+        img {
+            width: 170px;
+            display: block;
+        }
+
+        & + .details-title {
+            margin-top: 70px;
+        }
+    }
+}
+
+.details-title {
+    font-size: 30px;
+    font-weight: 400;
+    float: left;
+    margin-left: 30px;
+    margin-top: 45px;
+}
+
+.details-edit {
+    float: right;
+    margin-top: 45px;
+}
+
+.details-section-title {
+    clear: both;
+    font-size: 28px;
+    color: $primary-color;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.details-sections {
+    @include clearfix();
+    clear: both;
+    margin: 20px 50px;
+    display: flex;
+}
+
+.details-section {
+    width: calc(50% - 15px);
+    padding: 30px 40px;
+    border: 2px solid $border-color-lighter;
+    margin-right: 30px;
+
+    & + .details-section {
+        margin-right: 0;
+    }
+
+    &.details-section--full-width {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
+
+.detail-row {
+    font-size: 22px;
+    margin-bottom: 15px;
+    display: table;
+}
+
+.detail-row-title {
+    width: 200px;
+    display: table-cell;
+    font-weight: 400;
+}
+
+.detail-row-content {
+    display: table-cell;
+}
+
+.add-report-button {
+    @include reset-button();  
+    width: 100%;
+    color: $primary-color-darker;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    .fa {
+        margin-right: 10px;
+    }
+}

@@ -46,5 +46,20 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 templateUrl: 'pages/actions/details/details.html',
                 controller: 'actionDetailsController' 
             })
+            .state('app.groups', {
+                url: 'grupe',
+                templateUrl: 'pages/groups/groups.html',
+                controller: 'groupsController'
+            })
+            .state('app.add-group', {
+                url: 'dodaj-grupu',
+                templateUrl: 'pages/groups/create/createGroup.html',
+                controller: 'createGroupController' 
+            })
+            .state('app.group-details', {
+                url: 'pregled-grupe/:id',
+                templateUrl: 'pages/groups/details/groupDetails.html',
+                controller: 'groupDetailsController' 
+            })
     }
 ]);
