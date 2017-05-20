@@ -1,14 +1,44 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view view-title="{{chat.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+<ion-view view-title="Ante Antić">
+  <ion-content class="padding user-details">
+    <div class="clearfix">
+      <img ng-src="{{chat.face}}" class="user-img">
+      <div class="user-name">
+        Ante Antić
+      </div>
+    </div>
+    <a class="user-contact" href="tel:0977665879"><i class="icon ion-android-call"></i>097 766 5879</a>
+    <h2 class="user-subtitle">Osobni podaci</h2>
+        <div class="user-row">
+      <div class="user-row-title">Lokacija</div>
+      <div class="user-row-info">Nikole Tavelića 4, Split</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Posao</div>
+      <div class="user-row-info">Rad u skladištu</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Dostupnost</div>
+      <div class="user-row-info">Iza 2 poslijepodne</div>
+    </div>
+
+    <h2 class="user-subtitle">Uloga u udruzi</h2>
+    <div class="user-row">
+      <div class="user-row-title">Stanica</div>
+      <div class="user-row-info">HGSS Split</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Tip člana</div>
+      <div class="user-row-info">Gorski spašavatelj</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Grupe</div>
+      <div class="user-row-info">Alpinist, Speleolog</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Položeni tečajevi</div>
+      <div class="user-row-info">Prva pomoć, ronjenje u stijeni</div>
+    </div>
+
+
   </ion-content>
 </ion-view>
