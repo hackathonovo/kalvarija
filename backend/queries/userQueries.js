@@ -54,6 +54,7 @@ var getByGroup = function(group, station){
 
 module.exports = {
 	userFields,
+	getAll,
 	getById,
 	getByPhone,
 	getByStation,
