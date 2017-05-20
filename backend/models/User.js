@@ -2,11 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var UserSchema = new Schema({
-	firstName: String,
-	lastName: String,
+	name: String,
     isAdmin: Boolean,
     type: Number,
-    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Skill' }],
+    groups: Array,
     station: String,
     job: String,
     availability: {

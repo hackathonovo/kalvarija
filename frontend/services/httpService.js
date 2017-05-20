@@ -1,16 +1,17 @@
 hgss.service('httpService', ['$http', function($http) {
     return {
 
-    	getUserById : function(id){ return $http.get('/api/auth/user/id/'+ id )},
-    	getUserByPhone : function(phone){ return $http.get('/api/auth/user/phone/'+ phone )},
-    	getUsersByStation : function(station){ return $http.get('/api/user/station/'+ station )},
+        getAll : function(){ return $http.get('/api/user/all' ) },
+    	getUserById : function(id){ return $http.get('/api/user/id/'+ id )},
+    	getUserByPhone : function(phone){ return $http.get('/api/user/phone/'+ phone )},
         // user objekt { firstName, lastName, phone, type, skills, station }
     	createNewUser : function(user){ return $http.post('/api/user/new', user )},
 
+        getUsersByGroup : function(group, station){ return $http.get('/api/user', { params: { group : group, station: station } } )},
 
     	getActionById : function(id){ return $http.get('/api/action/id/'+ id )},
     	getActionByLeader : function(id){ return $http.get('/api/action/leader/'+ id )},
-    	// action objekt { leader,startTime,baseStation,description,groups }
+    	// action objekt { startTime, location, description, participants }
     	createNewAction : function(action){ return $http.post('/api/action/new', action )},
     }
 }])

@@ -1,8 +1,7 @@
 var User = require('../models/User');
 
 var userFields = [
-	"firstName",
-	"lastName",
+	"name",
 	"phone",
 	"type",
 	"skills",
@@ -12,17 +11,20 @@ var userFields = [
 	"location"
 ]
 
-var addNew = function(firstName, lastName, phone, type, skills, station){
+var addNew = function(name, phone, type, groups, station){
 	var user = new User({
-		firstName : firstName,
-	 	lastName : lastName,
+		name: name,
 	 	phone : phone,
 	 	type : type,
-	 	skills : skills,
+	 	groups : groups,
 	 	station : station
 	})
 
 	return user.save();
+}
+
+var getAll = function(){
+	return User.find()
 }
 
 var getById = function(id){
@@ -43,10 +45,18 @@ var getByStation = function(station){
 		.lean()
 }
 
+var getByGroup = function(group, station){
+	return User.find({groups: group, station: station})
+		.select(userFields)
+		.lean()
+}
+
 
 module.exports = {
+	userFields,
 	getById,
 	getByPhone,
 	getByStation,
+	getByGroup,
 	addNew
 }

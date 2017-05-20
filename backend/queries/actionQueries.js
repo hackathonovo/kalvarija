@@ -1,25 +1,33 @@
 var Action = require('../models/Action');
+var uq = require('../queries/userQueries');
+
+var populateUsers = [
+	{path: "leader", select: uq.userFields},
+	{path: "participants", select: uq.userFields}
+]
 
 var actionFields = [
+	"type",
 	"leader",
 	"startTime",
 	"endTime",
-	"baseStation",
+	"location",
+	"station",
 	"description",
-	"additionalNotes",
-	"groups",
+	"participants",
 	"case",
 	"alertLocation",
 	"alertTime",
-	"duration"
+	"duration",
+	"createdAt"
 ]
 
-var addNew = function(type, leader, startTime, baseStation, description, participants){
+var addNew = function(type, leader, startTime, location, description, participants){
 	var action = new Action({
 		type: type,
 		leader : leader,
 		startTime : startTime,
-		baseStation : baseStation,
+		location : location,
 		description : description,
 		participants : participants
 	});
@@ -30,12 +38,14 @@ var addNew = function(type, leader, startTime, baseStation, description, partici
 var getById = function(id){
 	return Action.findById(id)
 			.select(actionFields)
+			.populate(populateUsers)
 			.lean()
 }
 
 var getByLeader = function(leader){
 	return Action.find({ leader: leader })
 			.select(actionFields)
+			.populate(populateUsers)
 			.lean()
 }
 
