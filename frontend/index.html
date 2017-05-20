@@ -7,8 +7,26 @@
 
         <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
     <head>
-    <body ng-app="hgss">       
+    <body ng-app="hgss">
+        <header class="header">
+            <div class="logo-container">
+                <img src="content/images/logo.svg" class="logo">
+            </div>
+            <nav class="nav-container">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link active" href="#/index">Akcije</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Spasioci</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Grupe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Oprema</a></li>
+                </ul>
+            </nav>
+        </header>
+   
         <div ui-view></div>
+
+        <div class="container">
+
+        </div>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>

@@ -1,0 +1,15 @@
+.header {
+    background: $gray-light;
+    display: flex;
+    padding: 0 40px;
+    align-items: center;
+}
+
+.logo-container {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.logo {
+    display: block;
+}

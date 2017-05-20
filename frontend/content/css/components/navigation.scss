@@ -1,0 +1,28 @@
+.nav {
+    @include reset-list;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-item {
+    display: block;
+}
+
+.nav-link {
+    @include reset-link;
+    display: block;
+    padding: 25px 10px 22px;
+    margin: 0 10px;
+    color: $gray;
+    font-weight: $font-bold;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: $primary-color;
+    }
+
+    &.active {
+        color: $primary-color;
+        border-bottom: 2px solid $primary-color;
+    }
+}
