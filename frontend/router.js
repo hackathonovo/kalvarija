@@ -26,5 +26,10 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 templateUrl: 'pages/users/create/createUser.html',
                 controller: 'createUserController'
             })
+            .state('newAction', {
+                url: '/dodaj-akciju',
+                templateUrl: 'pages/newAction/newAction.html',
+                controller: 'newActionController' 
+            })
     }
 ]);

@@ -67,6 +67,7 @@ app.use(expressValidator({
 app.use('/api/auth', require('./backend/api/authApi'));
 app.use('/api/home', require('./backend/api/home'));
 app.use('/api/user', require('./backend/api/user'));
+app.use('/api/action', require('./backend/api/action'));
 app.use('/', require('./backend/config/routes'));
 
 app.use(function(err, req, res, next) {

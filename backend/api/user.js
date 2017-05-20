@@ -17,6 +17,20 @@ router
 	.catch(err => res.error(err))
 })
 
+.get('/station/:station', auth.ensure, function (req, res, next) {
+	// uq.getByStation(req.params.id)
+	// .then(data => res.ok(data))
+	// .catch(err => res.error(err))
+	console.log(req.params.id);
+	res.ok([{
+		firstName: "Ime",
+		lastName: "Prezime"
+	},{
+		firstName: "Ime2",
+		lastName: "Prezime2"
+	}])
+})
+
 .post('/new', auth.ensure, auth.isAdmin, function (req, res, next) {
 	uq.addNew(
 		req.body.firstName,

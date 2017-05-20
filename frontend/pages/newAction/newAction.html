@@ -1,0 +1,38 @@
+<form ng-submit="newAction()" style="display: flex; flex-direction: column">
+
+	<label for="leader">Vrsta akcije</label>
+	<select name="station" ng-model="action.type">
+		<option ng-repeat="a in actions">{{a}}</option>
+	</select>
+
+	<label for="station">Stanica</label>
+	<select name="station" ng-model="action.station" ng-change="getParticipants(action.station)">
+		<option ng-repeat="s in stations">{{s}}</option>
+	</select>
+
+	<label for="participantType">Tip sudionika</label>
+	<select name="participantType" ng-model="participantFilter">
+		<option ng-repeat="p in participantType">{{p}}</option>
+	</select>
+
+	<label for="location">Lokacija</label>
+	<input type="text" name="location">
+
+	<label for="date">Vrijeme</label>
+	<input type="date" name="date">
+	<input type="time" name="time">
+
+	<div ng-if="participants.length">
+		<!-- filtrirat ovisno od participantFilter vrijednosti -->
+		<div ng-repeat="p in participants">
+			<p>{{ p.firstName + " " + p.lastName }}</p>
+			<input type="checkbox" name="">
+		</div>
+	</div>
+
+	<label for="description">Opis</label>
+	<textarea name="description"></textarea>
+
+	<button type="submit">Dodaj akciju</button>
+
+</form>
