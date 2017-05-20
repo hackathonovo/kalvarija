@@ -24,6 +24,7 @@
     color: $gray;
     font-weight: $font-bold;
     transition: all 0.2s ease-in-out;
+    border-bottom: 2px solid transparent;
 
     &:hover {
         color: $primary-color;
