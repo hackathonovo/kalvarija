@@ -1,3 +1,7 @@
+.nav-container {
+    flex: 1;
+}
+
 .nav {
     @include reset-list;
     display: flex;
@@ -6,6 +10,10 @@
 
 .nav-item {
     display: block;
+
+    &.nav-item--right {
+        margin-left: auto;
+    }
 }
 
 .nav-link {
@@ -24,5 +32,21 @@
     &.active {
         color: $primary-color;
         border-bottom: 2px solid $primary-color;
+    }
+}
+
+.nav-button {
+    @include reset-button;
+    @extend .nav-link;
+    cursor: pointer;
+    padding: 25px 10px 22px;
+    color: $danger-color;
+
+    &:hover {
+        color: $danger-color;
+    }
+
+    &:focus {
+        outline: none;
     }
 }
