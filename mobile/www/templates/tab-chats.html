@@ -1,10 +1,13 @@
 <ion-view view-title="Članovi HGSS-a">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>Ante Antić</h2>
-        <p>HGSS Split, Speleologija, Alpinizam</p>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="u in users" type="item-text-wrap" href="#/tab/chats/{{u.id}}">
+        <img ng-src="http://loremflickr.com/320/240/person,{{u.name}}">
+        <h2>{{u.name}}</h2>
+        <p>
+          HGSS {{u.station}},
+          <span ng-repeat="g in u.groups">{{g}} </span>
+        </p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(chat)">
