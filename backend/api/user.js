@@ -18,17 +18,15 @@ router
 })
 
 .get('/station/:station', auth.ensure, function (req, res, next) {
-	// uq.getByStation(req.params.id)
-	// .then(data => res.ok(data))
-	// .catch(err => res.error(err))
-	console.log(req.params.id);
-	res.ok([{
-		firstName: "Ime",
-		lastName: "Prezime"
-	},{
-		firstName: "Ime2",
-		lastName: "Prezime2"
-	}])
+	uq.getByStation(req.params.station)
+	.then(data => res.ok(data))
+	.catch(err => res.error(err))
+})
+
+.get('/users', auth.ensure, function (req, res, next) {
+	uq.getByGroup(req.query.group, req.query.station)
+	.then(data => res.ok(data))
+	.catch(err => res.error(err))
 })
 
 .post('/new', auth.ensure, auth.isAdmin, function (req, res, next) {

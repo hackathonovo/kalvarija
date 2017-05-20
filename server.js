@@ -25,7 +25,10 @@ mongoose.connect(config.connectionStrings.local);
 
 //sample korisnik, ovo maknit kasnije
 var uq = require('./backend/queries/userQueries');
-uq.addNew("Test", "User", "123", 2, ["angular", "memes"], "24. Stanica")
+uq.addNew("Test", "User", "123", 2, ["Alpinist", "Doktor"], "Split")
+uq.addNew("Josip", "Dujić", "1234", 2, ["Alpinist", "Programer"], "Zadar")
+uq.addNew("Ivan", "Medić", "12345", 2, ["Doktor", "Alpinist"], "Split")
+uq.addNew("Dijana", "Šperanda", "123567", 2, ["Programer"], "Zagreb")
 
 app.use(express.static(__dirname + '/frontend'));
 app.use("/uploads", express.static(__dirname + '/uploads'));                

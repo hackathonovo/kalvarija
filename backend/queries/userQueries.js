@@ -43,10 +43,18 @@ var getByStation = function(station){
 		.lean()
 }
 
+var getByGroup = function(group, station){
+	return User.find({groups: group, station: station})
+		.select(userFields)
+		.lean()
+}
+
 
 module.exports = {
+	userFields,
 	getById,
 	getByPhone,
 	getByStation,
+	getByGroup,
 	addNew
 }
