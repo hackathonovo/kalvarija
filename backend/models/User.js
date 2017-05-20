@@ -6,7 +6,7 @@ var UserSchema = new Schema({
 	lastName: String,
     isAdmin: Boolean,
     type: Number,
-    skills: Array,
+    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Skill' }],
     station: String,
     job: String,
     availability: {

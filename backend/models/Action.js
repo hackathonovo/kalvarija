@@ -2,13 +2,14 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var ActionSchema = new Schema({
-	leader: ObjectId,
+    type: { type: mongoose.Schema.Types.ObjectId, ref: 'ActionType' },
+	leader: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     startTime: Date, //početak akcije (kad se nalaze na baznoj stanici)
     endTime: Date, //kraj akcije
-    baseStation: String, //lokacija bazne stanice
+    location: String, //lokacija bazne stanice
+    station: String, //okrug kojemu pripada akcija
 	description: String,
-    additionalNotes: String,
-    groups: Array,
+    group: { type: mongoose.Schema.Types.ObjectId, ref: 'Group' },
     case: {
         nameOfInjuredPerson: String,
         nameOfAction: String,
@@ -17,7 +18,6 @@ var ActionSchema = new Schema({
     alertLocation: String, //mjesto dojave
     alertTime: Date, //vrijeme dojave
     duration: Number //trajanje akcije u satima
-
 },{ timestamps: true });
 
 module.exports = mongoose.model('Action', ActionSchema);
