@@ -37,8 +37,8 @@ var getByPhone = function(phone){
 			.lean()
 }
 
-var getByStation = function(stationId){
-	return User.find({ station: stationId })
+var getByStation = function(station){
+	return User.find({ station: station })
 		.select(userFields)
 		.lean()
 }

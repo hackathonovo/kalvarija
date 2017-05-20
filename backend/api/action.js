@@ -19,11 +19,12 @@ router
 
 .post('/new', auth.ensure, function (req, res, next) {
 	aq.addNew(
-		req.body.leader,
+		req.body.type,
+		req.user._id, //leader
 		req.body.startTime,
 		req.body.baseStation,
 		req.body.description,
-		req.body.groups)
+		req.body.participants)
 	.then(data => res.created(data))
 	.catch(err => res.error(err))
 })

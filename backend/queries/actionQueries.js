@@ -14,14 +14,14 @@ var actionFields = [
 	"duration"
 ]
 
-var addNew = function(type, leader, startTime, baseStation, description, groups){
+var addNew = function(type, leader, startTime, baseStation, description, participants){
 	var action = new Action({
 		type: type,
 		leader : leader,
 		startTime : startTime,
 		baseStation : baseStation,
 		description : description,
-		groups : groups
+		participants : participants
 	});
 
 	return action.save();
