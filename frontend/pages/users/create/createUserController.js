@@ -1,0 +1,1 @@
+hgss.controller("createUserController", function () {});
