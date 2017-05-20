@@ -1,6 +1,5 @@
 <section class="container">
     <h1 class="page-title">HGSS članovi</h1>
-    <h2> ti si {{ currentUser.firstName + " " + currentUser.lastName }} </h2>
     <div class="toolbar">
         <div class="toolbar-section">
             <button class="toolbar-btn" ng-click="addNewUser()">
@@ -11,16 +10,16 @@
             <input class="toolbar-input" type="text" ng-model="searchQuery" />
         </div>
         <div class="toolbar-section">
-            <button class="toolbar-btn">
+            <button class="toolbar-btn" ng-click="setCardView(true)">
                 <i class="fa fa-th-large"></i>
             </button>
-            <button class="toolbar-btn">
+            <button class="toolbar-btn" ng-click="setCardView(false)">
                 <i class="fa fa-th-list"></i>
             </button>
         </div>
     </div>
 
-    <ul class="data-list data-list--cards">
+    <ul class="data-list" ng-class="{'data-list--cards': isCardView}">
         <li class="data-list-item data-list-item--legend">
             <div class="data-list-item-content">
                 Ime i prezime
@@ -35,63 +34,21 @@
                 Vještine
             </div>
         </li>
-        <li class="data-list-item">
+        <li class="data-list-item" ng-repeat="user in users | filter: searchQuery">
             <div class="data-list-item-content data-list-item-content--img">
                 <img  class="data-list-img" src="content/images/user.png" alt="Slika spasioca" />
             </div>
             <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
+                <a href="#" class="data-list-link">{{user.name}}</a>
             </div>
             <div class="data-list-item-content">
-                HGSS Biokovo
+                {{user.station}}
             </div>
             <div class="data-list-item-content">
-                Tučepi
+                {{user.location}}
             </div>
             <div class="data-list-item-content">
-                Speleologija, Alpinizam
-            </div>
-        </li>
-                <li class="data-list-item">
-            <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
-            </div>
-            <div class="data-list-item-content">
-                HGSS Biokovo
-            </div>
-            <div class="data-list-item-content">
-                Tučepi
-            </div>
-            <div class="data-list-item-content">
-                Speleologija, Alpinizam
-            </div>
-        </li>
-                <li class="data-list-item">
-            <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
-            </div>
-            <div class="data-list-item-content">
-                HGSS Biokovo
-            </div>
-            <div class="data-list-item-content">
-                Tučepi
-            </div>
-            <div class="data-list-item-content">
-                Speleologija, Alpinizam
-            </div>
-        </li>
-                <li class="data-list-item">
-            <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
-            </div>
-            <div class="data-list-item-content">
-                HGSS Biokovo
-            </div>
-            <div class="data-list-item-content">
-                Tučepi
-            </div>
-            <div class="data-list-item-content">
-                Speleologija, Alpinizam
+                <span ng-repeat="group in user.groups">{{group}} </span>
             </div>
         </li>
     </ul>
