@@ -1,0 +1,23 @@
+.btn {
+    @include reset-button;
+    border: 1px solid $border-color;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.btn-block {
+        display: block;
+    }
+
+    &.btn-lg {
+        padding: 10px 25px;
+    }
+}
+
+.btn-primary {
+    @include button-variant($primary-color, white, $primary-color, darken($primary-color, 5%), white, darken($primary-color, 5%));
+}
+
+.btn-white {
+    @include button-variant(transparent, white, white, transparent, white, darken(white, 5%));
+}
