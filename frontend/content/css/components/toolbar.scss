@@ -1,0 +1,67 @@
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+}
+
+.toolbar-section {
+    position: relative;
+    display: flex;
+    border-right: 1px solid $border-color;
+
+    &.toolbar-seciton-search {
+        flex: 1;
+    }
+
+    &:last-of-type {
+        border-right: 0;
+    }
+}
+
+.toolbar-btn {
+    @include reset-button;
+    height: 45px;
+    width: 45px;
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    color: $gray-dark;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background: $gray-light;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.toolbar-seciton-search {
+    &:before {
+        content: "\f002"; //search icon
+        font-family: FontAwesome;
+        font-size: 16px;
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 20px;
+    }
+}
+
+.toolbar-input {
+    height: 45px;
+    flex: 1;
+    border: 0;
+    padding-left: 55px;
+    font-family: $font;
+
+    &:focus {
+        outline: 0;
+        border: 1px solid $gray-semi-light;
+    }
+}

@@ -1,3 +1,7 @@
 node_modules/
 *.log
 frontend/dist
+
+mobile/node_modules/
+mobile/platforms/
+mobile/plugins/

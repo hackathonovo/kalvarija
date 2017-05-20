@@ -48,6 +48,7 @@ gulp.task('bundle-app', function () {
 
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
+    gulp.watch(paths.app, ['inject']);
 });
 
 gulp.task('default', ['inject', 'sass', 'watch']);

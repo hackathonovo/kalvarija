@@ -5,23 +5,11 @@
         <base href="/">
         <title>Hrvatska Gorska Služba spašavanja</title>
 
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./content/icon-fonts/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
     <head>
-    <body ng-app="hgss">
-        <header class="header">
-            <div class="logo-container">
-                <img src="content/images/logo.svg" class="logo">
-            </div>
-            <nav class="nav-container">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link active" href="#/index">Akcije</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Spasioci</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Grupe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Oprema</a></li>
-                </ul>
-            </nav>
-        </header>
-   
+    <body ng-app="hgss">  
         <div ui-view></div>
 
         <div class="container">
@@ -40,6 +28,7 @@
         <script src="/services/userService.js"></script>
         <script src="/pages/login/loginController.js"></script>
         <script src="/pages/layout/layoutController.js"></script>
+        <script src="/pages/users/usersController.js"></script>
         <!-- endinject -->
     </body>
 </html>
