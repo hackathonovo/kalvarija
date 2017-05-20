@@ -3,7 +3,7 @@ var User = require('../models/User');
 var userFields = [
 	"firstName",
 	"lastName",
-	"phone"
+	"phone",
 	"type",
 	"skills",
 	"station",
@@ -13,15 +13,14 @@ var userFields = [
 ]
 
 var addNew = function(firstName, lastName, phone, type, skills, station){
-	var user = new User(){
+	var user = new User({
 		firstName : firstName,
 	 	lastName : lastName,
 	 	phone : phone,
 	 	type : type,
 	 	skills : skills,
-	 	station : station,
-	 	job :  job
-	}
+	 	station : station
+	})
 
 	return user.save();
 }
