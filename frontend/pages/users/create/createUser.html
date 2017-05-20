@@ -30,10 +30,7 @@
             <div class="form-control">
                 <label class="form-label form-label-required">Stanica</label>
                 <select class="form-input" ng-model="user.station">
-                    <option>Split</option>
-                    <option>Zagreb</option>
-                    <option>Biokovo</option>
-                    <option>Dubrovnik</option>
+                    <option ng-repeat="station in stations">{{station}}</option>
                 </select>
             </div>
 

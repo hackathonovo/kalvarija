@@ -3,6 +3,7 @@ hgss.controller("actionDetailsController", ["$stateParams", "$scope", "httpServi
 	var id = $stateParams.id;
 
     httpService.getActionById(id).then(function(res){
+    	res.data.startTime = res.data.startTime.slice(11,16);
     	$scope.action = res.data;
     });
     

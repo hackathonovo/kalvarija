@@ -23,7 +23,7 @@ var populateUsers = [
 	{path: "participants", select: uq.userFields}
 ]
 
-var addNew = function(name, type, leader, startTime, location, description, station, participants){
+var addNew = function(name, type, leader, startTime, description, location, station, participants){
 	
 	if(participants===undefined){ participants = []}
 	

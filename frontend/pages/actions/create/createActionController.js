@@ -1,8 +1,8 @@
-hgss.controller('createActionController', ['$scope', 'userService', 'httpService', function($scope, userService, httpService) {
+hgss.controller('createActionController', ['$scope', '$state', 'userService', 'httpService', 'variablesService', function($scope, $state, userService, httpService, variablesService) {
 
     $scope.getParticipants = function(group){
         httpService.getUsersByGroup(group, $scope.action.station).then(function(res){
-            console.log(res);
+            
             $scope.participants = res.data;
         })
     }
@@ -11,13 +11,13 @@ hgss.controller('createActionController', ['$scope', 'userService', 'httpService
     $scope.action.station = userService.getProperty("station");
     $scope.getParticipants($scope.action.station);
 
-    $scope.stations = ["Šibenik", "Split", "Zadar"];
-    $scope.actions = ["Potraga", "Spašavanje", "Večera"];
+    $scope.stations = variablesService.getStations();
+    $scope.actions = variablesService.getActionTypes();
     $scope.groups = ["Alpinist", "Gusar"]
 
     $scope.newAction = function(){
         httpService.createNewAction($scope.action).then(function(res){
-            console.log("ok")
+            $state.go('app.action-details', {id: res.data._id})
         })
     }
 
