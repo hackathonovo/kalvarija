@@ -23,7 +23,13 @@ router
 	.catch(err => res.error(err))
 })
 
-.get('/users', auth.ensure, function (req, res, next) {
+.get('/all', auth.ensure, function (req, res, next) {
+	uq.getAll()
+	.then(data => res.ok(data))
+	.catch(err => res.error(err))
+})
+
+.get('', auth.ensure, function (req, res, next) {
 	uq.getByGroup(req.query.group, req.query.station)
 	.then(data => res.ok(data))
 	.catch(err => res.error(err))
@@ -31,8 +37,7 @@ router
 
 .post('/new', auth.ensure, function (req, res, next) {
 	uq.addNew(
-		req.body.firstName,
-		req.body.lastName,
+		req.body.name,
 		req.body.phone,
 		req.body.type,
 		req.body.skills,

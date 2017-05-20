@@ -1,29 +1,3 @@
-<!-- <form ng-submit="newAction()" style="display: flex; flex-direction: column">
-
-
-
-    <label for="location">Lokacija</label>
-    <input type="text" name="location">
-
-    <label for="date">Vrijeme</label>
-    <input type="date" name="date">
-    <input type="time" name="time">
-
-    <div ng-if="participants.length"> -->
-        <!-- filtrirat ovisno od participantFilter vrijednosti -->
-<!--         <div ng-repeat="p in participants">
-            <p>{{ p.firstName + " " + p.lastName }}</p>
-            <input type="checkbox" name="">
-        </div>
-    </div>
-
-    <label for="description">Opis</label>
-    <textarea name="description"></textarea>
-
-    <button type="submit">Dodaj akciju</button>
-
-</form> -->
-
 <section class="container">
     <h1 class="page-title">Organiziraj akciju spašavanja</h1>
     <form class="create-form-wrapper" ng-submit="newAction()">
@@ -36,9 +10,8 @@
             </div>
             <div class="form-control">
                 <label for="station" class="form-label form-label-required">Stanica</label>
-                <select name="station" ng-model="action.station" 
-                        ng-change="getParticipants(action.station)" 
-                        class="form-input">
+                <select name="station" ng-model="action.station" class="form-input"
+                ng-change="selectedGroup && getParticipants(selectedGroup, action.station)">
                     <option ng-repeat="s in stations">{{s}}</option>
                 </select>
             </div>
@@ -50,17 +23,17 @@
 
         <div class="create-form-container create-form-container-larger">
             <div class="form-control">
-                <label for="participantType" class="form-label form-label-required">Grupa</label>
-                <select name="participantType" ng-model="participantFilter" class="form-input">
-                    <option ng-repeat="p in participantType">{{p}}</option>
+                <label for="group" class="form-label form-label-required">Grupa</label>
+                <select name="group" ng-model="selectedGroup" class="form-input" ng-change="getParticipants(selectedGroup, action.station)">
+                    <option ng-repeat="group in groups">{{group}}</option>
                 </select>
                 <button class="btn-link-white"><i class="fa fa-plus"></i>Dodaj iz dodatne grupe</button>
              </div>
             <div class="form-control" ng-if="participants.length">
                 <div class="checklist-container">
                     <div class="checkbox-container" ng-repeat="p in participants">
-                        <input id="{{p.firstName}}" type="checkbox"/>
-                        <label for="{{p.firstName}}">{{ p.firstName + " " + p.lastName }}</label>
+                        <input id="{{p.name}}" type="checkbox"/>
+                        <label for="{{p.name}}">{{ p.name }}</label>
                     </div> 
                 </div> 
             </div>  
