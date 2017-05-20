@@ -5,11 +5,10 @@ var ActionSchema = new Schema({
     type: String,
     name: String,
 	leader: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    startTime: Date, //početak akcije (kad se nalaze na baznoj stanici)
-    endTime: Date, //kraj akcije
+    startTime: String, //početak akcije (kad se nalaze na baznoj stanici)
     location: String, //lokacija bazne stanice
     station: String, //okrug kojemu pripada akcija
-	description: String,
+    description: String,
     participants: Array,
     case: {
         nameOfInjuredPerson: String,
@@ -18,7 +17,7 @@ var ActionSchema = new Schema({
     },
     alertLocation: String, //mjesto dojave
     alertTime: Date, //vrijeme dojave
-    duration: Number //trajanje akcije u satima
+    finishedAt: Date, //kraj akcije
 },{ timestamps: true });
 
 module.exports = mongoose.model('Action', ActionSchema);
