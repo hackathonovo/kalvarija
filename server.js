@@ -25,8 +25,9 @@ mongoose.connect(config.connectionStrings.local);
 
 //sample korisnik, ovo maknit kasnije
 var uq = require('./backend/queries/userQueries');
+var jdid;
 uq.addNew("Test User", "123", 2, ["Alpinist", "Doktor"], "Split")
-uq.addNew("Josip Dujić", "1234", 2, ["Alpinist", "Programer"], "Zadar")
+uq.addNew("Josip Dujić", "1234", 2, ["Alpinist", "Programer"], "Zadar").then(data => jdid = data._id)
 uq.addNew("Ivan Medić", "12345", 2, ["Doktor", "Alpinist"], "Split")
 uq.addNew("Diana Šperanda", "123567", 2, ["Programer"], "Zagreb")
 
@@ -71,6 +72,7 @@ app.use('/api/auth', require('./backend/api/authApi'));
 app.use('/api/home', require('./backend/api/home'));
 app.use('/api/user', require('./backend/api/user'));
 app.use('/api/action', require('./backend/api/action'));
+app.use('/api/group', require('./backend/api/group'));
 app.use('/', require('./backend/config/routes'));
 
 app.use(function(err, req, res, next) {
