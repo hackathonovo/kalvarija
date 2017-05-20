@@ -1,12 +1,8 @@
 var Action = require('../models/Action');
 var uq = require('../queries/userQueries');
 
-var populateUsers = [
-	{path: "leader", select: uq.userFields},
-	{path: "participants", select: uq.userFields}
-]
-
 var actionFields = [
+	"name",
 	"type",
 	"leader",
 	"startTime",
@@ -22,17 +18,34 @@ var actionFields = [
 	"createdAt"
 ]
 
-var addNew = function(type, leader, startTime, location, description, participants){
+var populateUsers = [
+	{path: "leader", select: uq.userFields},
+	{path: "participants", select: uq.userFields}
+]
+
+var addNew = function(name, type, leader, startTime, location, description, station, participants){
+	
+	if(participants===undefined){ participants = []}
+	
 	var action = new Action({
+		name: name,
 		type: type,
 		leader : leader,
 		startTime : startTime,
 		location : location,
+		station: station,
 		description : description,
-		participants : participants
+		participants : participants 
 	});
 
 	return action.save();
+}
+
+var getAll = function(){
+	return Action.find()
+		.select(actionFields)
+		.populate(populateUsers)
+		.lean()
 }
 
 var getById = function(id){
@@ -51,6 +64,7 @@ var getByLeader = function(leader){
 
 module.exports = {
 	getById,
+	getAll,
 	getByLeader,
 	addNew
 }

@@ -17,6 +17,7 @@ app.use(function(req, res, next){
 	}
 
 	res.error = function(err){
+		console.log(err);
 		res.status(400).json(err);
 	}
 

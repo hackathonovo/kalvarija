@@ -18,7 +18,7 @@
     <ul class="data-list data-list--cards">
         <li class="data-list-item data-list-item--legend">
             <div class="data-list-item-content">
-                Ime i prezime
+                Naziv akcije
             </div>
             <div class="data-list-item-content">
                 Stanica
@@ -27,66 +27,21 @@
                 Lokacija
             </div>
             <div class="data-list-item-content">
-                Vještine
+                Status
             </div>
         </li>
-        <li class="data-list-item">
-            <div class="data-list-item-content data-list-item-content--img">
-                <img  class="data-list-img" src="content/images/user.png" alt="Slika spasioca" />
+        <li class="data-list-item" ng-repeat="a in actions">
+            <div class="data-list-item-content">
+                <a ui-sref="app.action-details({id: a._id})" class="data-list-link">{{a.name}}</a>
             </div>
             <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
+                {{a.station}}
             </div>
             <div class="data-list-item-content">
-                HGSS Biokovo
+                {{a.location}}
             </div>
             <div class="data-list-item-content">
-                Tučepi
-            </div>
-            <div class="data-list-item-content">
-                Speleologija, Alpinizam
-            </div>
-        </li>
-                <li class="data-list-item">
-            <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
-            </div>
-            <div class="data-list-item-content">
-                HGSS Biokovo
-            </div>
-            <div class="data-list-item-content">
-                Tučepi
-            </div>
-            <div class="data-list-item-content">
-                Speleologija, Alpinizam
-            </div>
-        </li>
-                <li class="data-list-item">
-            <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
-            </div>
-            <div class="data-list-item-content">
-                HGSS Biokovo
-            </div>
-            <div class="data-list-item-content">
-                Tučepi
-            </div>
-            <div class="data-list-item-content">
-                Speleologija, Alpinizam
-            </div>
-        </li>
-                <li class="data-list-item">
-            <div class="data-list-item-content">
-                <a href="#" class="data-list-link">Pero Perić</a>
-            </div>
-            <div class="data-list-item-content">
-                HGSS Biokovo
-            </div>
-            <div class="data-list-item-content">
-                Tučepi
-            </div>
-            <div class="data-list-item-content">
-                Speleologija, Alpinizam
+                Početak: {{a.startTime}}
             </div>
         </li>
     </ul>

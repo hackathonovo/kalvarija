@@ -21,20 +21,30 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 templateUrl: 'pages/users/users.html',
                 controller: 'usersController',
             })
+            .state('app.details-user', {
+                url: 'detalji/:id',
+                templateUrl: 'pages/users/details/userDetails.html',
+                controller: 'userDetailsController',
+            })
             .state('app.add-user', {
-                url: '/dodaj-clana',
+                url: 'dodaj-clana',
                 templateUrl: 'pages/users/create/createUser.html',
                 controller: 'createUserController'
             })
             .state('app.actions', {
-                url: '/akcije-spasavanja',
+                url: 'akcije-spasavanja',
                 templateUrl: 'pages/actions/actions.html',
                 controller: 'actionsController'
             })
             .state('app.add-action', {
-                url: '/dodaj-akciju',
+                url: 'dodaj-akciju',
                 templateUrl: 'pages/actions/create/createAction.html',
                 controller: 'createActionController' 
+            })
+            .state('app.action-details', {
+                url: 'pregled-akcije/:id',
+                templateUrl: 'pages/actions/details/details.html',
+                controller: 'actionDetailsController' 
             })
     }
 ]);
