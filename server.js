@@ -23,6 +23,10 @@ socketApi(io);
 
 mongoose.connect(config.connectionStrings.local);
 
+//sample korisnik, ovo maknit kasnije
+var uq = require('./backend/queries/userQueries');
+uq.addNew("Test", "User", "123", 2, ["angular", "memes"], "24. Stanica")
+
 app.use(express.static(__dirname + '/frontend'));
 app.use("/uploads", express.static(__dirname + '/uploads'));                
 app.use(morgan('dev'));                                         
@@ -60,6 +64,7 @@ app.use(expressValidator({
   }
 }));
 
+app.use('/api/auth', require('./backend/api/authApi'));
 app.use('/api/home', require('./backend/api/home'));
 app.use('/api/user', require('./backend/api/user'));
 app.use('/', require('./backend/config/routes'));

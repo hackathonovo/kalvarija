@@ -5,9 +5,9 @@ var UserSchema = new Schema({
 	firstName: String,
 	lastName: String,
     isAdmin: Boolean,
-    type: String,
+    type: Number,
     skills: Array,
-    station: Number,
+    station: String,
     job: String,
     availability: {
         startTime: Number,

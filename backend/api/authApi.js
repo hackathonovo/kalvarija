@@ -9,11 +9,12 @@ var _ = require('lodash');
 router.post('/authenticate', function(req, res, next) {
 	uq.getByPhone(req.body.phone)
 		.then(user => {
-            var token = jwt.encode(user, config.secret);
-            res.json({ success: true, token: 'JWT ' + token });
-		})
-		.catch(err => {
-			res.noAuth({ success: false, msg: 'User not found.' });
+			if(user[0]){
+	            var token = jwt.encode(user[0], config.secret);
+	            res.json({ success: true, token: 'JWT ' + token });
+			}else{
+				res.noAuth({ success: false, msg: 'User not found.' });
+			}
 		})
 });
 
