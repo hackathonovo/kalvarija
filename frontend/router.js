@@ -41,5 +41,10 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 templateUrl: 'pages/actions/create/createAction.html',
                 controller: 'createActionController' 
             })
+            .state('app.action-details', {
+                url: 'pregled-akcije/:id',
+                templateUrl: 'pages/actions/details/details.html',
+                controller: 'actionDetailsController' 
+            })
     }
 ]);
