@@ -1,7 +1,7 @@
 hgss.service('httpService', ['$http', function($http) {
     return {
 
-        getAll : function(){ return $http.get('/api/user/all' ) },
+        getAllUsers : function(){ return $http.get('/api/user/all' ) },
     	getUserById : function(id){ return $http.get('/api/user/id/'+ id )},
     	getUserByPhone : function(phone){ return $http.get('/api/user/phone/'+ phone )},
         // user objekt { firstName, lastName, phone, type, skills, station }
