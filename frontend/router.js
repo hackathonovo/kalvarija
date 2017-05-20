@@ -21,6 +21,11 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 templateUrl: 'pages/users/users.html',
                 controller: 'usersController',
             })
+            .state('app.details-user', {
+                url: 'detalji/:id',
+                templateUrl: 'pages/users/details/userDetails.html',
+                controller: 'userDetailsController',
+            })
             .state('app.add-user', {
                 url: 'dodaj-clana',
                 templateUrl: 'pages/users/create/createUser.html',

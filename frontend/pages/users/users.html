@@ -39,7 +39,7 @@
                 <img  class="data-list-img" src="content/images/user.png" alt="Slika spasioca" />
             </div>
             <div class="data-list-item-content">
-                <a href="#" class="data-list-link">{{user.name}}</a>
+                <a ui-sref="app.details-user({id: user._id})" class="data-list-link">{{user.name}}</a>
             </div>
             <div class="data-list-item-content">
                 {{user.station}}
