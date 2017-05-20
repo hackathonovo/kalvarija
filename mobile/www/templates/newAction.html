@@ -1,0 +1,51 @@
+<ion-view view-title="Nova Akcija">
+  <ion-content class="no-tabs">
+           <div class="form-control">
+                <label for="name" class="form-label form-label-required">Naziv akcije</label>
+                <input type="text" name="name" ng-model="action.name" class="form-input">
+            </div>
+            <div class="form-control">
+                <label for="leader" class="form-label form-label-required">Vrsta akcije</label>
+                <select name="station" ng-model="action.type" class="form-input">
+                    <option ng-repeat="a in actions">{{a}}</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="station" class="form-label form-label-required">Stanica</label>
+                <select name="station" ng-model="action.station" class="form-input"
+                ng-change="selectedGroup && getParticipants(selectedGroup, action.station)">
+                    <option ng-repeat="s in stations">{{s}}</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="startTime" class="form-label form-label-required">Vrijeme nalaženja</label>
+                <input type="time" name="startTime" ng-model="action.startTime" class="form-input">
+            </div>
+            <div class="form-control">
+                <label for="location" class="form-label form-label-required">Lokacija</label>
+                <input type="text" name="location" ng-model="action.location" class="form-input">
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="group" class="form-label form-label-required">Grupa</label>
+            <select name="group" ng-model="selectedGroup" class="form-input" ng-change="getParticipants(selectedGroup, action.station)">
+                <option ng-repeat="group in groups">{{group}}</option>
+            </select>
+            <button class="btn-link-white"><i class="fa fa-plus"></i>Dodaj iz dodatne grupe</button>
+         </div>
+        <div class="form-control" ng-if="participants.length">
+            <div class="checklist-container">
+                <div class="checkbox-container" ng-repeat="p in participants">
+                    <input id="{{p.name}}" type="checkbox"/>
+                    <label for="{{p.name}}">{{ p.name }}</label>
+                </div> 
+            </div> 
+        </div>  
+        <div class="form-control">
+            <label for="description" class="form-label">Opis</label>
+            <textarea name="description" class="form-textarea" ng-model="action.description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-organize mod-margin-top">Organiziraj akciju</button>
+  </ion-content>
+</ion-view>
