@@ -1,9 +1,20 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $state) {
+.controller('DashCtrl', function($scope, $state, uiGmapGoogleMapApi) {
   $scope.createAction = function() {
     $state.go('new-action');
   }
+    $scope.map = { 
+      center: { 
+        latitude: 45, 
+        longitude: -73 
+      }, 
+      zoom: 8 
+    };
+
+    uiGmapGoogleMapApi.then(function(maps) {
+      console.log(maps);
+  });
 })
 
 .controller('ChatsCtrl', function($scope, $http) {
