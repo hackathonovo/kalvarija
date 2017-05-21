@@ -13,7 +13,7 @@
                 <label class="form-label form-label-required">Članovi grupe</label>
                 <div class="checklist-container" ng-model="user.course">
                     <div class="checkbox-container" ng-repeat="u in users">
-                        <input id="{{u._id}}" type="checkbox" ng-model="hohh[p._id]" ng-change="checkUser(u._id)"/>
+                        <input id="{{u._id}}" type="checkbox" ng-model="hohh[u._id]" ng-change="checkUser(u._id)"/>
                         <label for="{{u._id}}">{{u.name}}</label>
                     </div>
                 </div>

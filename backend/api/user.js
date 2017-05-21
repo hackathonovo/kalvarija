@@ -47,7 +47,9 @@ router
 		req.body.phone,
 		req.body.type,
 		req.body.groups,
-		req.body.station)
+		req.body.station,
+		req.body.location,
+		req.body.job)
 	.then(data => res.created(data))
 	.catch(err => res.error(err))
 })
