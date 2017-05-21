@@ -54,6 +54,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'LoginCtrl'
   })
 
+  .state('new-action', {
+    url: '/new-action',
+    templateUrl: 'templates/newAction.html',
+    controller: 'NewActionCtrl'
+  })
+
   .state('tab.dash', {
     url: '/dash',
     views: {
@@ -73,6 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
