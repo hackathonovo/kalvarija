@@ -40,7 +40,7 @@ router
 		req.body.name,
 		req.body.phone,
 		req.body.type,
-		req.body.skills,
+		req.body.groups,
 		req.body.station)
 	.then(data => res.created(data))
 	.catch(err => res.error(err))

@@ -21,6 +21,7 @@ authConfig(passport);
 socketConfig(io);
 socketApi(io);
 
+mongoose.Promise = global.Promise;
 mongoose.connect(config.connectionStrings.local);
 
 //sample korisnik, ovo maknit kasnije
