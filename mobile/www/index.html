@@ -7,28 +7,13 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <!-- un-comment this code to enable service worker
+    <!-- un-comment this code to enable service worker-->
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
           .then(() => console.log('service worker installed'))
           .catch(err => console.log('Error', err));
       }
-    </script>-->
-
-    
-    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCfldT7y_UktDz_P9yIdB75FB3Yq8bKLoc",
-        authDomain: "hackathonovo-168303.firebaseapp.com",
-        databaseURL: "https://hackathonovo-168303.firebaseio.com",
-        projectId: "hackathonovo-168303",
-        storageBucket: "hackathonovo-168303.appspot.com",
-        messagingSenderId: "531662358388"
-      };
-      firebase.initializeApp(config);
     </script>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">

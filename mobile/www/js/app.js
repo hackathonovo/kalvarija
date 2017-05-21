@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'starter.services', 'uiGmapgoogle-maps' ])
 
-.run(function($ionicPlatform, $rootScope, $state, authService) {
+.run(function($ionicPlatform, $rootScope, $state, authService, $ionicPush) {
   $ionicPlatform.ready(function() {
     $ionicPlatform.is('android');
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -20,6 +20,13 @@ angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'start
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    $ionicPush.register().then(function(t) {
+      return $ionicPush.saveToken(t);
+    }).then(function(t) {
+      console.log('Token saved:', t.token);
+    });
+
   });
 
   $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
@@ -28,6 +35,11 @@ angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'start
           $state.go('login'); 
         }
     });
+
+  $rootScope.$on('cloud:push:notification', function(event, data) {
+  var msg = data.message;
+  alert(msg.title + ': ' + msg.text);
+});
 
 })
 
