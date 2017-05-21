@@ -4,7 +4,7 @@ var userFields = [
 	"name",
 	"phone",
 	"type",
-	"skills",
+	"groups",
 	"station",
 	"job",
 	"availability",
