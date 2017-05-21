@@ -1,18 +1,18 @@
 <section class="container">
-    <div class="details-sections">
-        <div class="details-section">
+    <div class="details-container details-group">
+        <div class="details-edit mod-margin-top">
+            <button class="btn btn-lg btn-default" ui-sref="app.edit-group({id: group._id})">Uredi</button>
+        </div>
+        <div class="detail-section floated">
             <div class="details-section-title">
-                Podaci o grupi - <h6>{{group.name}}</h62>
-            </div>
-            <div class="detail-row">
+                Podaci o grupi - {{group.name}}
+            </div>            
+            <div class="detail-row mod-margin-top">
                 <div class="detail-row-title">Sudionici</div>
                 <div class="detail-row-content"> 
                     <span ng-repeat="par in group.participants">{{par.name}}</span>
                 </div>
             </div>
-        </div>
-        <div class="details-edit">
-            <button class="btn btn-lg btn-default" ui-sref="app.edit-group({id: group._id})">Uredi</button>
         </div>
     </div>
 </section>

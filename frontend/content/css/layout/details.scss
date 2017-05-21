@@ -105,3 +105,15 @@
         margin-right: 10px;
     }
 }
+
+.detail-section {
+    &.floated {
+        float: left;
+    }
+}
+
+.details-group {
+    .details-edit {
+        margin-top: 20px;
+    }
+}
