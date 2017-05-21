@@ -32,7 +32,6 @@
             <select name="group" ng-model="selectedGroup" class="form-input" ng-change="getParticipants(selectedGroup, action.station)">
                 <option ng-repeat="group in groups">{{group.name}}</option>
             </select>
-            <button class="btn-link-white"><i class="fa fa-plus"></i>Dodaj iz dodatne grupe</button>
          </div>
         <div class="form-control" ng-if="participants.length">
             <ion-list ng-repeat="p in participants">
