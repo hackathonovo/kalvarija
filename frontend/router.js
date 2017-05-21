@@ -31,6 +31,11 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 templateUrl: 'pages/users/create/createUser.html',
                 controller: 'createUserController'
             })
+            .state('app.edit-user', {
+                url: 'uredi-korisnika/:id',
+                templateUrl: 'pages/users/edit/editUser.html',
+                controller: 'editUserController' 
+            })
             .state('app.actions', {
                 url: 'akcije-spasavanja',
                 templateUrl: 'pages/actions/actions.html',
@@ -60,6 +65,11 @@ hgss.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
                 url: 'pregled-grupe/:id',
                 templateUrl: 'pages/groups/details/groupDetails.html',
                 controller: 'groupDetailsController' 
+            })
+            .state('app.edit-group', {
+                url: 'uredi/:id/',
+                templateUrl: 'pages/groups/edit/editGroup.html',
+                controller: 'editGroupController' 
             })
     }
 ]);

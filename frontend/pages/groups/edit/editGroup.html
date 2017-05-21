@@ -1,0 +1,25 @@
+<section class="container">
+    <h1 class="page-title">Uredi grupu</h1>
+    <div class="create-form-wrapper">
+        <div class="create-form-container">
+            <div class="form-control">
+                <label class="form-label form-label-required">Naziv</label>
+                <input class="form-input" ng-model="value.name" />
+            </div>
+        </div>
+
+        <div class="create-form-container create-form-container-larger">
+            <ddiv class="form-control">
+                <label class="form-label form-label-required">Članovi</label>
+                <div class="checklist-container" ng-repeat="part in value.participants">
+                    <div class="checkbox-container">
+                        <input id="test" type="checkbox"/>
+                        <label for="test">{{part.name}}</label>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+    <button style="margin-top:20px" class="btn btn-primary" ng-click="save()">Spremi</button>
+    <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Odustani</button>
+</section>

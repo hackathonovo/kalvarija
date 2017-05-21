@@ -39,9 +39,18 @@ var getGroupByName = function(name){
 			.lean()
 }
 
+var editGroup = function(id){
+	var groupToBeChanged = Group.findById(id);
+	groupToBeChanged.name = group.name;
+	groupToBeChanged.participants = group.participants;
+
+	return groupToBeChanged.save();
+}
+
 module.exports = {
 	getGroupById,
 	getAllGroups,
 	getGroupByName,
-	addNewGroup
+	addNewGroup,
+	editGroup
 }

@@ -7,9 +7,12 @@
             <div class="detail-row">
                 <div class="detail-row-title">Sudionici</div>
                 <div class="detail-row-content"> 
-                    <span ng-repeat="group in group.participants">{{group}}</span>
+                    <span ng-repeat="par in group.participants">{{par.name}}</span>
                 </div>
             </div>
+        </div>
+        <div class="details-edit">
+            <button class="btn btn-lg btn-default" ui-sref="app.edit-group({id: group._id})">Uredi</button>
         </div>
     </div>
 </section>

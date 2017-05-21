@@ -6,6 +6,7 @@ hgss.service('httpService', ['$http', function($http) {
     	getUserByPhone : function(phone){ return $http.get('/api/user/phone/'+ phone )},
         // user objekt { firstName, lastName, phone, type, skills, station }
     	createNewUser : function(user){ return $http.post('/api/user/new', user )},
+        editUser: function(id) {return $http.put('/api/user/edit/id/' + id)},
 
         getUsersByGroup : function(group, station){ return $http.get('/api/user', { params: { group : group, station: station } } )},
 
@@ -19,5 +20,6 @@ hgss.service('httpService', ['$http', function($http) {
         getAllGroups: function(){ return $http.get('/api/group/all') },
         getGroupByName: function(name){ return $http.get('/api/group/name/'+ name )},
         addNewGroup: function(group){ return $http.post('/api/group/new', group )},
+        editGroup: function(id) {return $http.post('/api/group/edit/id/' + id)}
     }
 }])

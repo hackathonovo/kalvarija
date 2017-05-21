@@ -70,6 +70,12 @@ var getByGroup = function(group, station){
 		.lean()
 }
 
+var editUser = function(id){
+	var userToBeChanged = User.findById(id);
+	userToBeChanged.name = user.name;
+
+	return userToBeChanged.save();
+}
 
 module.exports = {
 	userFields,
@@ -79,6 +85,7 @@ module.exports = {
 	getByStation,
 	getByGroup,
 	addNew,
+	editUser,
 	setAvailability,
 	getUserActiveActions
 }

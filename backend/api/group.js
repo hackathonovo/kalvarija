@@ -31,5 +31,12 @@ router
 	.catch(err => res.error(err))
 })
 
+.post('/edit/:id', auth.ensure, function(req, res, next) {
+	gq.editGroup(
+		req.body.name,
+		req.body.participants)
+	.then(data => res.ok(data))
+	.catch(err => res.error(err))
+})
 
 module.exports = router;

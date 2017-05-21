@@ -62,5 +62,11 @@ router
 	.catch(err => res.error(err))
 })
 
+.put('/edit-user/:id', auth.ensure, function(req, res, next) {
+	uq.editUser(req.user.id)
+	.then(data => res.ok())
+	.catch(err => res.error(err))
+})
+
 
 module.exports = router;
