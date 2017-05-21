@@ -12,8 +12,8 @@
             </div>
 
             <div class="form-control">
-                <label class="form-label">Adresa</label>
-                <input class="form-input" ng-model="user.adress"/>
+                <label class="form-label">Lokacija</label>
+                <input class="form-input" ng-model="user.location"/>
                 </select>
             </div>
             <div class="form-control">
@@ -37,9 +37,7 @@
             <div class="form-control">
                 <label class="form-label form-label-required">Grupa</label>
                 <select class="form-input" ng-model="user.group">
-                    <option>Speleolozi</option>
-                    <option>Alpinisti</option>
-                    <option>Medicina</option>
+                    <option ng-repeat="g in groups">{{g.name}}</option>
                 </select>
                 <button class="btn-link-white"><i class="fa fa-plus"></i>Dodaj u dodatnu grupu</button>
             </div>
