@@ -43,8 +43,6 @@ angular.module('starter.controllers', [])
   });
 })
 
-
-
 .controller('NewActionCtrl', function($scope, $http) {
 });
 
