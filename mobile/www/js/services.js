@@ -22,6 +22,7 @@ angular.module('starter.services', [])
       }
   }
 }])
+
 .service('authService', ["$http", "userService", function($http, userService) {
     var LOCAL_TOKEN_KEY = 'hgss';
     var isAuthenticated = false;

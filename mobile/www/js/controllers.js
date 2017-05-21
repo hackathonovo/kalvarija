@@ -23,11 +23,9 @@ angular.module('starter.controllers', [])
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //
-  $scope.$on('$ionicView.enter', function(e) {
     $http.get('http://localhost:8080/api/user/all').then(function(res){
       $scope.users = res.data;
     })
-  });
 })
 
 .controller('LoginCtrl', function($state, $scope, authService) {
@@ -43,12 +41,17 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, authService, $state) {
   $scope.settings = {
     enableFriends: true
   };
+
+  $scope.logout = function() {
+    authService.logout();
+    $state.go('login');
+  }
 })
 
-.controller('NewActionCtrl', function($scope) {
-  
+.controller('NewActionCtrl', function($scope, $http) {
+
 });
