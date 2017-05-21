@@ -26,7 +26,7 @@ mongoose.connect(config.connectionStrings.local);
 //sample korisnik, ovo maknit kasnije
 var uq = require('./backend/queries/userQueries');
 var jdid;
-uq.addNew("Test User", "123", 2, ["Alpinist", "Doktor"], "Split")
+uq.addNew("Test User", "123", "test", ["Alpinist", "Doktor"], "Split")
 uq.addNew("Josip Dujić", "1234", 2, ["Alpinist", "Programer"], "Zadar").then(data => jdid = data._id)
 uq.addNew("Ivan Medić", "12345", 2, ["Doktor", "Alpinist"], "Split")
 uq.addNew("Diana Šperanda", "123567", 2, ["Programer"], "Zagreb")
