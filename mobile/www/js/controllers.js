@@ -24,10 +24,11 @@ angular.module('starter.controllers', [])
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
-  //
-    $http.get(baseUrl + '/api/user/all').then(function(res){
-      $scope.users = res.data;
-    })
+  $scope.$on('$ionicView.enter', function(e) {  
+      $http.get(baseUrl + '/api/user/all').then(function(res){
+        $scope.users = res.data;
+      })
+   });
 })
 
 .controller('LoginCtrl', function($state, $scope, authService) {
@@ -48,7 +49,7 @@ angular.module('starter.controllers', [])
 .controller('NewActionCtrl', function($scope, $http) {
 })
 
-.controller('AccountCtrl', function($scope, $http, userService) {
+.controller('AccountCtrl', function($scope, $http, userService, $state, authService) {
   $http.get(baseUrl + '/api/user/availability').then(function(res){
     console.log(res.data);
     $scope.settings = {
@@ -58,5 +59,10 @@ angular.module('starter.controllers', [])
 
   $scope.setAvailability = function(status){
     $http.post(baseUrl + '/api/user/availability/' + status);
+  }
+
+  $scope.logout = function() {
+    authService.logout();
+    $state.go('login');
   }
 });

@@ -97,13 +97,13 @@ h1.action-title {
 }
 
 .dashboard {
-    height: calc(100vh - 130px);
+    height: calc(100vh - 98px);
     overflow: hidden;
     top: 110px;
 }
 
 .dashboard .angular-google-map-container { 
-    height: calc(100vh - 130px); 
+    height: calc(100vh - 98px); 
 }
 
 
@@ -286,5 +286,58 @@ input::-webkit-date-and-time-value {
 .user-img.red,
 .item-content img.red{
     border: 3px solid red;
->>>>>>> Stashed changes
+}
+
+.item-remove-animate {
+    transition: none !important;
+}
+
+.login {
+    top: 60px;
+}
+
+.login-page {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.login-container {
+    background: #0478af;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 380px;
+    padding: 60px 40px;
+}
+
+.login-logo {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.login-page .form-label {
+    color: #fff;
+    font-weight: 300;
+}
+
+.login-btn {
+    box-shadow: 0;
+    border: 1px solid #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #fff;
+    display: block;
+    padding: 10px 25px;
+    margin: 15px 30px;
 }
