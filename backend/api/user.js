@@ -11,6 +11,12 @@ router
 	.catch(err => res.error(err))
 })
 
+.get('/actions', auth.ensure, function (req, res, next) {
+	uq.getUserActiveActions(req.user._id)
+	.then(data => res.ok(data))
+	.catch(err => res.error(err))
+})
+
 .get('/phone/:phone', auth.ensure, function (req, res, next) {
 	uq.getByPhone(req.params.phone)
 	.then(data => res.ok(data))

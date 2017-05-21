@@ -200,7 +200,6 @@ h1.action-title {
     top: 50px;
 }
 
-<<<<<<< Updated upstream
 .form-control {
     margin-bottom: 20px;
 }
@@ -286,6 +285,26 @@ input::-webkit-date-and-time-value {
 .user-img.red,
 .item-content img.red{
     border: 3px solid red;
+}
+<<<<<<< HEAD
+.action-button {
+    position: relative;
+    margin-top: 10px;
+}
+.action-button button{ margin-left: -8px; }
+
+.logout-button.disabled button{
+    background-color: white;
+    border: 1px solid gray;
+    color: gray;
+}
+.hohh a { float: right; }
+
+.userStatus{
+    height: 5px;
+    width: 5px;
+    border-radius: 5px;
+    background-color: red;
 }
 
 .item-remove-animate {

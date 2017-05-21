@@ -53,13 +53,30 @@ angular.module('starter.controllers', [])
         })
     }
 
+    $scope.checkUser = function(uid){
+        console.log(uid, $scope.action.participants);
+        if(_.includes($scope.action.participants, uid)){
+            _.pull($scope.action.participants, uid);
+        }else{
+            if($scope.action.participants){
+                $scope.action.participants.push(uid);
+            }
+            else{
+                $scope.action.participants = [uid];
+            }
+        }
+    }
+
     $scope.action = {}
     $scope.action.station = userService.getProperty("station");
     $scope.getParticipants($scope.action.station);
 
     $scope.stations = variablesService.getStations();
     $scope.actions = variablesService.getActionTypes();
-    $scope.groups = ["Alpinist", "Gusar"]
+
+    $http.get(baseUrl + '/api/group/all').then(function(res){
+      $scope.groups = res.data;
+    })
 
     $scope.newAction = function(){
         $http.post(baseUrl + '/api/action/new', $scope.action ).then(function(res){
@@ -76,7 +93,14 @@ angular.module('starter.controllers', [])
         console.log(res.data);
         $scope.action = res.data;
       })
-  });
+    });
+
+    $scope.endAction = function(){
+       $http.post(baseUrl + '/api/action/end/' + $scope.action._id).then(function(res){
+          console.log(res.data)
+          $scope.action.finished = true;
+       })
+    }
 })
 
 .controller('AccountCtrl', function($scope, $http, userService, $state, authService) {

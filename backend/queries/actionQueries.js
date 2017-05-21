@@ -16,7 +16,8 @@ var actionFields = [
 	"alertTime",
 	"duration",
 	"createdAt",
-	"finishedAt"
+	"finishedAt",
+	"finished"
 ]
 
 var populateUsers = [
@@ -25,8 +26,6 @@ var populateUsers = [
 ]
 
 var addNew = function(name, type, leader, startTime, description, location, station, participants){
-	
-	if(participants===undefined){ participants = []}
 	
 	var action = new Action({
 		name: name,
@@ -65,6 +64,24 @@ var closeAction = function(id){
 		.lean()
 }
 
+var confirm = function(id, uid){
+	return Action.findByIdAndUpdate(id, {
+			$push: { confirmedParticipants : uid }
+		}, {new: true})
+		.select(actionFields)
+		.populate(populateUsers)
+		.lean()
+}
+
+var close = function(id){
+	return Action.findByIdAndUpdate(id, {
+		$set: {finished: true}
+	})
+	.select(actionFields)
+	.populate(populateUsers)
+	.lean()
+}
+
 var getByLeader = function(leader){
 	return Action.find({ leader: leader })
 			.select(actionFields)
@@ -77,5 +94,7 @@ module.exports = {
 	getAll,
 	getByLeader,
 	closeAction,
+	confirm,
+	close,
 	addNew
 }

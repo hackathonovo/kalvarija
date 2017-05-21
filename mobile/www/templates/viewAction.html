@@ -26,13 +26,21 @@
       <div class="user-row-info">{{action.location}}</div>
     </div>
 
-    <h2 class="user-subtitle" ng-if="participants.length" >Sudionici</h2>
+    <h2 class="user-subtitle" ng-if="action.participants.length" >Sudionici</h2>
 
-    <div class="user-row" ng-if="participants.length" ng-repeat="p in participants">
-      <div class="user-row-title">{{p.name}}</div>
+    <div class="user-row" ng-if="action.participants.length" ng-repeat="p in action.participants">
       <div class="user-row-info">
-        <a class="user-contact" href="tel:{{p.phone}}"><i class="icon ion-android-call"></i>{{p.phone}}</a>
+        <div class="hohh">
+           {{p.name}}
+           <a href="tel:{{p.phone}}" class="hohh"><i class="icon ion-android-call"></i>{{p.phone}}</a>
+        </div>
       </div>
+    </div>
+
+    <div class="logout-button action-button" ng-class="action.finished ? 'disabled' : ''">
+        <button ng-click="endAction()" ng-disabled="action.finished">
+         {{action.finished ? 'Akcija završena' : 'Završi akciju'}}
+        </button>
     </div>
 
   </ion-content>

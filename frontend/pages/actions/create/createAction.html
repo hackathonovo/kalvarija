@@ -37,11 +37,12 @@
                 </select>
                 <button class="btn-link-white"><i class="fa fa-plus"></i>Dodaj iz dodatne grupe</button>
              </div>
+             
             <div class="form-control" ng-if="participants.length">
                 <div class="checklist-container">
                     <div class="checkbox-container" ng-repeat="p in participants">
-                        <input id="{{p._id}}" type="checkbox"/>
-                        <label for="{{p.name}}">{{ p.name }}</label>
+                        <input id="{{p._id}}" type="checkbox" ng-model="hohh[p._id]" ng-change="checkUser(p._id)"/>
+                        <label for="{{p._id}}">{{p.name}}</label>
                     </div> 
                 </div> 
             </div>  
