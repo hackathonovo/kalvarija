@@ -10,6 +10,7 @@ hgss.controller("createUserController", ["$scope", "$state", "userService", "htt
 	$scope.user = {};
 	$scope.user.station = userService.getProperty("station");
 	$scope.stations = variablesService.getStations();
+	$scope.groups = variablesService.getGroups();
 
 	$scope.back = function()
 	{

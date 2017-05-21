@@ -13,13 +13,15 @@ var userFields = [
 	"location"
 ]
 
-var addNew = function(name, phone, type, groups, station){
+var addNew = function(name, phone, type, groups, station, location, job){
 	var user = new User({
 		name: name,
 	 	phone : phone,
 	 	type : type,
 	 	groups : groups,
 	 	station : station,
+	 	location: location,
+	 	job: job,
 	 	currentAvailability: true
 	})
 

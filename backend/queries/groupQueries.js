@@ -29,6 +29,7 @@ var getAllGroups = function(){
 var getGroupById = function(id){
 	return Group.findById(id)
 			.select(groupFields)
+			.populate(populateParticipants)
 			.lean()
 }
 
