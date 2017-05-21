@@ -15,7 +15,8 @@ var actionFields = [
 	"alertLocation",
 	"alertTime",
 	"duration",
-	"createdAt"
+	"createdAt",
+	"finishedAt"
 ]
 
 var populateUsers = [
@@ -55,6 +56,15 @@ var getById = function(id){
 			.lean()
 }
 
+var closeAction = function(id){
+	return Action.findByIdAndUpdate(id, {
+			finishedAt: new Date()
+		})
+		.select(actionFields)
+		.populate(populateUsers)
+		.lean()
+}
+
 var getByLeader = function(leader){
 	return Action.find({ leader: leader })
 			.select(actionFields)
@@ -66,5 +76,6 @@ module.exports = {
 	getById,
 	getAll,
 	getByLeader,
+	closeAction,
 	addNew
 }

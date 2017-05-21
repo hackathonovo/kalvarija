@@ -37,21 +37,26 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams, $http, Chats) {
+  $http.get('http://localhost:8080/api/user/id/' + $stateParams.id).then(function(res){
+    $scope.user = res.data;
+  });
 })
 
-.controller('AccountCtrl', function($scope, authService, $state) {
-  $scope.settings = {
-    enableFriends: true
-  };
 
-  $scope.logout = function() {
-    authService.logout();
-    $state.go('login');
-  }
-})
 
 .controller('NewActionCtrl', function($scope, $http) {
+});
 
+.controller('AccountCtrl', function($scope, $http, userService) {
+  $http.get('http://localhost:8080/api/user/availability').then(function(res){
+    console.log(res.data);
+    $scope.settings = {
+      availability : res.data
+    };
+  });
+
+  $scope.setAvailability = function(status){
+    $http.post('http://localhost:8080/api/user/availability/' + status);
+  }
 });

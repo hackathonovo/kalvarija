@@ -46,5 +46,15 @@ router
 	.catch(err => res.error(err))
 })
 
+.get('/availability', auth.ensure, function(req, res, next) {
+	res.ok(req.user.currentAvailability);
+})
+
+.post('/availability/:status', auth.ensure, function(req, res, next) {
+	uq.setAvailability(req.user.id, req.params.status)
+	.then(data => res.ok())
+	.catch(err => res.error(err))
+})
+
 
 module.exports = router;

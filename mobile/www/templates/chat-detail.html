@@ -1,16 +1,16 @@
-<ion-view view-title="Ante Antić">
+<ion-view view-title="{{user.name}}">
   <ion-content class="padding user-details">
     <div class="clearfix">
-      <img ng-src="{{chat.face}}" class="user-img">
+      <img ng-src="{{chat.face}}" class="user-img" ng-class=" u.currentAvailability ? 'green' : 'red'">
       <div class="user-name">
-        Ante Antić
+        {{user.name}}
       </div>
     </div>
-    <a class="user-contact" href="tel:0977665879"><i class="icon ion-android-call"></i>097 766 5879</a>
+    <a class="user-contact" href="tel:{{user.phone}}"><i class="icon ion-android-call"></i>{{user.phone}}</a>
     <h2 class="user-subtitle">Osobni podaci</h2>
         <div class="user-row">
       <div class="user-row-title">Lokacija</div>
-      <div class="user-row-info">Nikole Tavelića 4, Split</div>
+      <div class="user-row-info">{{user.location}}</div>
     </div>
     <div class="user-row">
       <div class="user-row-title">Posao</div>
@@ -24,7 +24,7 @@
     <h2 class="user-subtitle">Uloga u udruzi</h2>
     <div class="user-row">
       <div class="user-row-title">Stanica</div>
-      <div class="user-row-info">HGSS Split</div>
+      <div class="user-row-info">HGSS {{user.station}}</div>
     </div>
     <div class="user-row">
       <div class="user-row-title">Tip člana</div>
