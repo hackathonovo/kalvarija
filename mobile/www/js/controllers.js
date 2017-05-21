@@ -13,20 +13,18 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
   //
   $scope.$on('$ionicView.enter', function(e) {
-    $http.get('/api/user/all' ).then(function(res){
-      $scope.chats = res.data;
+    $http.get('http://localhost:8080/api/user/all').then(function(res){
+      $scope.users = res.data;
     })
   });
-
-  // $scope.chats = Chats.all();
-  // $scope.remove = function(chat) {
-  //   Chats.remove(chat);
-  // };
 })
 
-.controller('LoginCtrl', function($scope, authService) {
+.controller('LoginCtrl', function($state, $scope, authService) {
+  $scope.user = {}
   $scope.login = function(){
-    authService.login($scope.phone);
+    authService.login($scope.user.phone).then(function(){
+      $state.go("tab.dash")
+    });
   }
 })
 
