@@ -47,6 +47,15 @@
     width: 100px;
 }
 
+.data-list-actions {
+    &.data-list--cards {
+        .data-list-item {
+            width: 280px;
+            padding-left: 20px;
+        }
+    }
+}
+
 .data-list--cards {
     display: flex;
     flex-wrap: wrap;

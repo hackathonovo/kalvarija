@@ -2,7 +2,7 @@ var baseUrl = "http://hgss.ivanmedic.com";
 
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $state, uiGmapGoogleMapApi) {
+.controller('DashCtrl', function($scope, $state, uiGmapGoogleMapApi, $ionicPush) {
   $scope.createAction = function() {
     $state.go('new-action');
   }

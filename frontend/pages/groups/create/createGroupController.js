@@ -1,5 +1,9 @@
 hgss.controller("createGroupController", ["$scope", "$state", "httpService", function ($scope, $state, httpService) {
 
+	httpService.getAllUsers().then(function(res) {
+		$scope.users = res.data;
+	});
+
 	$scope.save = function()
 	{
 		httpService.addNewGroup($scope.group).then(function(res) {

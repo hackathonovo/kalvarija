@@ -7,14 +7,14 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <!-- un-comment this code to enable service worker
+    <!-- un-comment this code to enable service worker-->
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
           .then(() => console.log('service worker installed'))
           .catch(err => console.log('Error', err));
       }
-    </script>-->
+    </script>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -23,8 +23,12 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
+    <script src="lib/bluebird.min.js"></script>
+
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic.cloud.min.js"></script>
+
 
     <script src="./lib/angular-simple-logger.js"></script>
     <script src="./lib/lodash.js"></script>

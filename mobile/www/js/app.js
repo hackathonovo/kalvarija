@@ -5,21 +5,28 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'uiGmapgoogle-maps' ])
+angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'starter.services', 'uiGmapgoogle-maps' ])
 
-.run(function($ionicPlatform, $rootScope, $state, authService) {
+.run(function($ionicPlatform, $rootScope, $state, authService, $ionicPush) {
   $ionicPlatform.ready(function() {
+    $ionicPlatform.is('android');
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    $ionicPush.register().then(function(t) {
+      return $ionicPush.saveToken(t);
+    }).then(function(t) {
+      console.log('Token saved:', t.token);
+    });
+
   });
 
   $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
@@ -29,6 +36,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
     });
 
+  $rootScope.$on('cloud:push:notification', function(event, data) {
+  var msg = data.message;
+  alert(msg.title + ': ' + msg.text);
+});
+
 })
 
 .config(function(uiGmapGoogleMapApiProvider) {
@@ -37,6 +49,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
+})
+
+.config(function($ionicCloudProvider) {
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "67106cbf"
+    },
+    "push": {
+      "sender_id": "531662358388",
+      "pluginConfig": {
+        "ios": {
+          "badge": true,
+          "sound": true
+        },
+        "android": {
+          "iconColor": "#343434"
+        }
+      }
+    }
+  });
+
 })
 
 

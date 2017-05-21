@@ -33,8 +33,8 @@ var getUserActiveActions = function(uid){
 		confirmedParticipants: {$ne: uid}
 	})
 	.populate([
-		{path: "leader", select: uq.userFields},
-		{path: "participants", select: uq.userFields}])
+		{path: "leader", select: userFields},
+		{path: "participants", select: userFields}])
 	.lean()
 }
 
