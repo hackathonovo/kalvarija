@@ -11,11 +11,12 @@
         <div class="create-form-container create-form-container-larger">
             <div class="form-control">
                 <label class="form-label form-label-required">Članovi grupe</label>
-                <select class="form-input" ng-model="group.participants">
-                    <option>Josip Dujić</option>
-                    <option>Ivan Medić</option>
-                    <option>Diana Šperanda</option>
-                </select>
+                <div class="checklist-container" ng-model="user.course">
+                    <div class="checkbox-container" ng-repeat="u in users">
+                        <input id="{{u._id}}" type="checkbox" ng-model="hohh[p._id]" ng-change="checkUser(u._id)"/>
+                        <label for="{{u._id}}">{{u.name}}</label>
+                    </div>
+                </div>
             </div>            
         </div>
     </div>
