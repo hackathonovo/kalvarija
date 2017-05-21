@@ -35,9 +35,7 @@
     "uid": "0.0.2",
     "util": "^0.10.3",
     "xmlhttprequest": "1.8.0",
-    "xoauth2": "^1.2.0"
-  },
-  "devDependencies": {
+    "xoauth2": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-angular-filesort": "^1.1.1",
     "gulp-autoprefixer": "^4.0.0",
