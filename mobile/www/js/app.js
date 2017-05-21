@@ -69,6 +69,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'NewActionCtrl'
   })
 
+  .state('view-action', {
+    url: '/view-action/:id',
+    templateUrl: 'templates/viewAction.html',
+    controller: 'viewActionCtrl'
+  })
+
   .state('tab.dash', {
     url: '/dash',
     views: {

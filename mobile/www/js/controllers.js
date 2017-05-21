@@ -45,12 +45,40 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('NewActionCtrl', function($scope, $http) {
+.controller('NewActionCtrl', function($scope, $state, $http, userService, variablesService) {
+    $scope.getParticipants = function(group){
+        $http.get(baseUrl + '/api/user', { params: { group : group, station: $scope.action.station } }).then(function(res){
+            $scope.participants = res.data;
+        })
+    }
+
+    $scope.action = {}
+    $scope.action.station = userService.getProperty("station");
+    $scope.getParticipants($scope.action.station);
+
+    $scope.stations = variablesService.getStations();
+    $scope.actions = variablesService.getActionTypes();
+    $scope.groups = ["Alpinist", "Gusar"]
+
+    $scope.newAction = function(){
+        $http.post(baseUrl + '/api/action/new', $scope.action ).then(function(res){
+            $state.go('view-action', {id: res.data._id})
+        })
+    }
 })
 
+.controller('viewActionCtrl', function($scope, $state, $stateParams, $http, userService, variablesService) {
+        
+    $scope.$on('$ionicView.enter', function(e) {  
+      console.log($stateParams.id);
+      $http.get(baseUrl + '/api/action/id/' + $stateParams.id).then(function(res){
+        console.log(res.data);
+        $scope.action = res.data;
+      })
+  });
+})
 .controller('AccountCtrl', function($scope, $http, userService) {
   $http.get(baseUrl + '/api/user/availability').then(function(res){
-    console.log(res.data);
     $scope.settings = {
       availability : res.data
     };

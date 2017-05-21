@@ -33,14 +33,14 @@
             <div class="form-control">
                 <label for="group" class="form-label form-label-required">Grupa</label>
                 <select name="group" ng-model="selectedGroup" class="form-input" ng-change="getParticipants(selectedGroup, action.station)">
-                    <option ng-repeat="group in groups">{{group}}</option>
+                    <option ng-repeat="group in groups">{{group.name}}</option>
                 </select>
                 <button class="btn-link-white"><i class="fa fa-plus"></i>Dodaj iz dodatne grupe</button>
              </div>
             <div class="form-control" ng-if="participants.length">
                 <div class="checklist-container">
                     <div class="checkbox-container" ng-repeat="p in participants">
-                        <input id="{{p.name}}" type="checkbox"/>
+                        <input id="{{p._id}}" type="checkbox"/>
                         <label for="{{p.name}}">{{ p.name }}</label>
                     </div> 
                 </div> 
