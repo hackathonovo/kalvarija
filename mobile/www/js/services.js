@@ -80,7 +80,7 @@ angular.module('starter.services', [])
     };
 
     var login = function(phone) {
-        return $http.post('http://localhost:8080/api/auth/authenticate', {phone: phone}).then(function(result) {
+        return $http.post('http://hgss.ivanmedic.com/api/auth/authenticate', {phone: phone}).then(function(result) {
             storeUserCredentials(result.data.token);
             return result;
         });
