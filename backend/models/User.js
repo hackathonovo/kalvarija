@@ -8,10 +8,10 @@ var UserSchema = new Schema({
     groups: Array,
     station: String,
     job: String,
+    currentAvailability: Boolean,
     availability: {
         startTime: Number,
-        endTime: Number,
-        current: Boolean
+        endTime: Number
     },
 	phone: { 
 		type: String,
