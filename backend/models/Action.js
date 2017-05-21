@@ -9,7 +9,8 @@ var ActionSchema = new Schema({
     location: String, //lokacija bazne stanice
     station: String, //okrug kojemu pripada akcija
     description: String,
-    participants: Array,
+    participants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    confirmedParticipants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     case: {
         nameOfInjuredPerson: String,
         nameOfAction: String,
@@ -18,6 +19,10 @@ var ActionSchema = new Schema({
     alertLocation: String, //mjesto dojave
     alertTime: Date, //vrijeme dojave
     finishedAt: Date, //kraj akcije
+    finished: {
+        type: Boolean,
+        default: false
+    },
 },{ timestamps: true });
 
 module.exports = mongoose.model('Action', ActionSchema);

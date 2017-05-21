@@ -1,4 +1,5 @@
 var User = require('../models/User');
+var Action = require('../models/Action');
 
 var userFields = [
 	"name",
@@ -23,6 +24,18 @@ var addNew = function(name, phone, type, groups, station){
 	})
 
 	return user.save();
+}
+
+var getUserActiveActions = function(uid){
+	return Action.find({
+		participants: uid,
+		finished: false,
+		confirmedParticipants: {$ne: uid}
+	})
+	.populate([
+		{path: "leader", select: uq.userFields},
+		{path: "participants", select: uq.userFields}])
+	.lean()
 }
 
 var setAvailability = function(uid, status){
@@ -66,5 +79,6 @@ module.exports = {
 	getByStation,
 	getByGroup,
 	addNew,
-	setAvailability
+	setAvailability,
+	getUserActiveActions
 }

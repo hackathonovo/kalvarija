@@ -37,5 +37,17 @@ router
 	.catch(err => res.error(err))
 })
 
+.post('/confirm/:id', auth.ensure, function(req, res, next) {
+	aq.confirm(req.params.id, req.user._id)
+	.then(data => res.ok(data))
+	.catch(err => res.error(err))
+})
+
+.post('/end/:id', auth.ensure, function(req, res, next) {
+	aq.close(req.params.id)
+	.then(data => res.ok(data))
+	.catch(err => res.error(err))
+})
+
 
 module.exports = router;
