@@ -5,6 +5,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var inject = require('gulp-inject');
 var angularFilesort = require('gulp-angular-filesort');
+var nodemon = require('gulp-nodemon');
 
 var paths = {
     sass_entry: ['./frontend/content/css/main.scss'],
@@ -46,9 +47,18 @@ gulp.task('bundle-app', function () {
         .pipe(gulp.dest('.frontend/'));
 });
 
+gulp.task('server',function(){
+    nodemon({
+        script: 'server.js',
+        ignore: 'frontend/*'
+    });
+});
+
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
     gulp.watch(paths.app, ['inject']);
 });
+
+gulp.task('build', ['inject', 'sass', 'server']);
 
 gulp.task('default', ['inject', 'sass', 'watch']);
