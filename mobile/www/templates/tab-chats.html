@@ -1,8 +1,9 @@
 <ion-view view-title="Članovi HGSS-a">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="u in users" type="item-text-wrap" href="#/tab/chats/{{u.id}}">
-        <img ng-src="http://loremflickr.com/320/240/person,{{u.name}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="u in users" type="item-text-wrap" href="#/tab/chats/{{u._id}}">
+        <img ng-class=" u.currentAvailability ? 'green' : 'red' " 
+          ng-src="http://loremflickr.com/320/240/person,{{u.name}}">
         <h2>{{u.name}}</h2>
         <p>
           HGSS {{u.station}},

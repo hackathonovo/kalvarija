@@ -200,6 +200,7 @@ h1.action-title {
     top: 50px;
 }
 
+<<<<<<< Updated upstream
 .form-control {
     margin-bottom: 20px;
 }
@@ -275,4 +276,15 @@ input::-webkit-date-and-time-value {
     display: block;
     width: 100%;
     padding: 10px;
+}
+
+.user-img.green,
+.item-content img.green{
+    border: 3px solid lightgreen;
+}
+
+.user-img.red,
+.item-content img.red{
+    border: 3px solid red;
+>>>>>>> Stashed changes
 }

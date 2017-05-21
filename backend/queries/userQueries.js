@@ -7,6 +7,7 @@ var userFields = [
 	"groups",
 	"station",
 	"job",
+	"currentAvailability",
 	"availability",
 	"location"
 ]
@@ -17,10 +18,15 @@ var addNew = function(name, phone, type, groups, station){
 	 	phone : phone,
 	 	type : type,
 	 	groups : groups,
-	 	station : station
+	 	station : station,
+	 	currentAvailability: true
 	})
 
 	return user.save();
+}
+
+var setAvailability = function(uid, status){
+	return User.findByIdAndUpdate(uid, { currentAvailability: status }).exec()
 }
 
 var getAll = function(){
@@ -59,5 +65,6 @@ module.exports = {
 	getByPhone,
 	getByStation,
 	getByGroup,
-	addNew
+	addNew,
+	setAvailability
 }

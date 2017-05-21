@@ -1,3 +1,5 @@
+var baseUrl = "http://hgss.ivanmedic.com";
+
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $state, uiGmapGoogleMapApi) {
@@ -23,7 +25,7 @@ angular.module('starter.controllers', [])
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //
-    $http.get('http://localhost:8080/api/user/all').then(function(res){
+    $http.get(baseUrl + '/api/user/all').then(function(res){
       $scope.users = res.data;
     })
 })
@@ -37,21 +39,24 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope, authService, $state) {
-  $scope.settings = {
-    enableFriends: true
-  };
-
-  $scope.logout = function() {
-    authService.logout();
-    $state.go('login');
-  }
+.controller('ChatDetailCtrl', function($scope, $stateParams, $http, Chats) {
+  $http.get(baseUrl + '/api/user/id/' + $stateParams.id).then(function(res){
+    $scope.user = res.data;
+  });
 })
 
 .controller('NewActionCtrl', function($scope, $http) {
+})
 
+.controller('AccountCtrl', function($scope, $http, userService) {
+  $http.get(baseUrl + '/api/user/availability').then(function(res){
+    console.log(res.data);
+    $scope.settings = {
+      availability : res.data
+    };
+  });
+
+  $scope.setAvailability = function(status){
+    $http.post(baseUrl + '/api/user/availability/' + status);
+  }
 });
