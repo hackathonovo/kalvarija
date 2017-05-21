@@ -1,10 +1,14 @@
-<ion-view view-title="Login">
-  <ion-content>
-    <div class="list list-inset">
-          <label class="item item-input">
-              <input type="text" placeholder="Phone number" ng-model="user.phone">
-          </label>
-      </div>
-      <button class="button button-block button-calm" ng-click="login()">Login</button>
-  </ion-content>
+<ion-view view-title="Prijava">
+<ion-content class="login">
+<div class="login-page">
+    <form class="login-container" ng-submit="login()">
+        <img class="login-logo" src="img/logo.svg">
+        <div class="form-container">
+            <label class="form-label">Broj mobitela</label>
+            <input class="form-input" type="text" name="phone" ng-model="user.phone" placeholder="Unesi broj mobitela">
+        </div>
+        <button type="submit" class="login-btn">Prijavi se</button>
+    </form>
+</div>  
+</ion-content>
 </ion-view>
