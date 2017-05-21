@@ -31,7 +31,10 @@
                 Lokacija
             </div>
             <div class="data-list-item-content">
-                Vještine
+                Tip korisnika
+            </div>
+            <div class="data-list-item-content">
+                Grupe
             </div>
         </li>
         <li class="data-list-item" ng-repeat="user in users | filter: searchQuery">
@@ -46,6 +49,9 @@
             </div>
             <div class="data-list-item-content">
                 {{user.location}}
+            </div>
+            <div class="data-list-item-content">
+                {{user.type}}
             </div>
             <div class="data-list-item-content">
                 <span ng-repeat="group in user.groups">{{group}} </span>

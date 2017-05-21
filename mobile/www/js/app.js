@@ -102,6 +102,12 @@ angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'start
     controller: 'NewActionCtrl'
   })
 
+  .state('view-action', {
+    url: '/view-action/:id',
+    templateUrl: 'templates/viewAction.html',
+    controller: 'viewActionCtrl'
+  })
+
   .state('tab.dash', {
     url: '/dash',
     views: {

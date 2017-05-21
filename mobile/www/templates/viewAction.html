@@ -1,0 +1,47 @@
+<ion-view view-title="{{action.name}}">
+  <ion-content class="padding user-details">
+
+    <div class="clearfix">
+      <div class="user-name">
+        {{action.name}}
+      </div>
+    </div>
+
+    <div class="user-contact" >
+      <p>Voditelj: {{action.leader.name}}</p>
+      <a href="tel:{{action.leader.phone}}"><i class="icon ion-android-call"></i>{{action.leader.phone}}</a>
+    </div>
+    
+    <h2 class="user-subtitle">Detalji</h2>
+    <div class="user-row">
+      <div class="user-row-title">Tip akcije</div>
+      <div class="user-row-info">{{action.type}}</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Stanica</div>
+      <div class="user-row-info">{{action.station}}</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Lokacija</div>
+      <div class="user-row-info">{{action.location}}</div>
+    </div>
+
+    <h2 class="user-subtitle" ng-if="action.participants.length" >Sudionici</h2>
+
+    <div class="user-row" ng-if="action.participants.length" ng-repeat="p in action.participants">
+      <div class="user-row-info">
+        <div class="hohh">
+           {{p.name}}
+           <a href="tel:{{p.phone}}" class="hohh"><i class="icon ion-android-call"></i>{{p.phone}}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="logout-button action-button" ng-class="action.finished ? 'disabled' : ''">
+        <button ng-click="endAction()" ng-disabled="action.finished">
+         {{action.finished ? 'Akcija završena' : 'Završi akciju'}}
+        </button>
+    </div>
+
+  </ion-content>
+</ion-view>
