@@ -1,0 +1,39 @@
+<ion-view view-title="{{action.name}}">
+  <ion-content class="padding user-details">
+
+    <div class="clearfix">
+      <div class="user-name">
+        {{action.name}}
+      </div>
+    </div>
+
+    <div class="user-contact" >
+      <p>Voditelj: {{action.leader.name}}</p>
+      <a href="tel:{{action.leader.phone}}"><i class="icon ion-android-call"></i>{{action.leader.phone}}</a>
+    </div>
+    
+    <h2 class="user-subtitle">Detalji</h2>
+    <div class="user-row">
+      <div class="user-row-title">Tip akcije</div>
+      <div class="user-row-info">{{action.type}}</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Stanica</div>
+      <div class="user-row-info">{{action.station}}</div>
+    </div>
+    <div class="user-row">
+      <div class="user-row-title">Lokacija</div>
+      <div class="user-row-info">{{action.location}}</div>
+    </div>
+
+    <h2 class="user-subtitle" ng-if="participants.length" >Sudionici</h2>
+
+    <div class="user-row" ng-if="participants.length" ng-repeat="p in participants">
+      <div class="user-row-title">{{p.name}}</div>
+      <div class="user-row-info">
+        <a class="user-contact" href="tel:{{p.phone}}"><i class="icon ion-android-call"></i>{{p.phone}}</a>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

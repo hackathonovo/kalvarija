@@ -1,8 +1,7 @@
 hgss.controller('createActionController', ['$scope', '$state', 'userService', 'httpService', 'variablesService', function($scope, $state, userService, httpService, variablesService) {
 
     $scope.getParticipants = function(group){
-        httpService.getUsersByGroup(group, $scope.action.station).then(function(res){
-            
+        httpService.getUsersByGroup(group, $scope.action.station).then(function(res){   
             $scope.participants = res.data;
         })
     }
@@ -13,7 +12,9 @@ hgss.controller('createActionController', ['$scope', '$state', 'userService', 'h
 
     $scope.stations = variablesService.getStations();
     $scope.actions = variablesService.getActionTypes();
-    $scope.groups = ["Alpinist", "Gusar"]
+    httpService.getAllGroups().then(function(res){
+        $scope.groups = res.data;
+    })
 
     $scope.newAction = function(){
         httpService.createNewAction($scope.action).then(function(res){
