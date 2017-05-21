@@ -2,7 +2,7 @@ var baseUrl = "http://hgss.ivanmedic.com";
 
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $state, uiGmapGoogleMapApi) {
+.controller('DashCtrl', function($scope, $state, uiGmapGoogleMapApi, $ionicPush) {
   $scope.createAction = function() {
     $state.go('new-action');
   }
@@ -17,6 +17,20 @@ angular.module('starter.controllers', [])
     uiGmapGoogleMapApi.then(function(maps) {
       console.log(maps);
   });
+
+    $ionicPush.register().then(function(t) {
+      console.log("test");
+    return $ionicPush.saveToken(t);
+  }).then(function(t) {
+    console.log('Token saved:', t.token);
+  });
+
+  $scope.$on('cloud:push:notification', function(event, data) {
+  var msg = data.message;
+  alert(msg.title + ': ' + msg.text);
+});
+
+
 })
 
 .controller('ChatsCtrl', function($scope, $http) {

@@ -5,16 +5,16 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'uiGmapgoogle-maps' ])
+angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'starter.services', 'uiGmapgoogle-maps' ])
 
 .run(function($ionicPlatform, $rootScope, $state, authService) {
   $ionicPlatform.ready(function() {
+    $ionicPlatform.is('android');
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -37,6 +37,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
+})
+
+.config(function($ionicCloudProvider) {
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "67106cbf"
+    },
+    "push": {
+      "sender_id": "AIzaSyDlxkQ-oY9eADYVRmxGBxohHTw54UGC6ck",
+      "pluginConfig": {
+        "ios": {
+          "badge": true,
+          "sound": true
+        },
+        "android": {
+          "iconColor": "#343434"
+        }
+      }
+    }
+  });
+
 })
 
 
