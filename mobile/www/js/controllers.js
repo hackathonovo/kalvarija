@@ -1,6 +1,10 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, $state) {
+  $scope.createAction = function() {
+    $state.go('new-action');
+  }
+})
 
 .controller('ChatsCtrl', function($scope, $http) {
   // With the new view caching in Ionic, Controllers are only called
@@ -32,4 +36,8 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+.controller('NewActionCtrl', function($scope) {
+  
 });

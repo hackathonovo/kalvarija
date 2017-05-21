@@ -5,6 +5,7 @@
     color: white;
 }
 
+.nav-bar-block .bar,
 .nav-bar-tabs-top .bar {
     height: 60px;
     background: #0478af;
@@ -16,6 +17,14 @@
 
 .ionic-scroll {
     top: 130px;
+}
+
+.ionic-scroll.no-tabs {
+    top: 75px;
+}
+
+.ionic-scroll.no-tabs .scroll {
+    padding: 0 20px;
 }
 
 .organize-action-button {
@@ -177,4 +186,64 @@ h1.action-title {
 
 .toggle-small.item-toggle .toggle {
     top: 50px;
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-label-required:after {
+    content: "*";
+    color: #D32F2F;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+select.form-input,
+input.form-input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    line-height: 38px;
+    border-radius: 4px;
+    border: 1px solid #BDBDBD;
+    padding: 0 15px;
+    background: white;
+    line-height: 45px;
+}
+
+input::-webkit-date-and-time-value {
+    line-height: 28px;
+}
+
+.btn-link-white {
+    background-color: transparent;
+    color: #0478af;
+    border-color: transparent;
+}
+
+.btn-organize {
+    display: block;
+    width: 100%;
+    color: #fff;
+    background-color: #0478af;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0;
+    border: 1px solid #0478af;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #bdbdbd;
 }

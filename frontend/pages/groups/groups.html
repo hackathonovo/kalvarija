@@ -28,7 +28,7 @@
             </li>
             <li class="data-list-item" ng-repeat="group in groups | filter: searchGroups">
                 <div class="data-list-item-content">
-                    <a ui-sref="app.group-details({id: group.name})" class="data-list-link">{{group.name}}</a>
+                    <a ui-sref="app.group-details({id: group._id})" class="data-list-link">{{group.name}}</a>
                 </div>
             </li>
         </ul>
